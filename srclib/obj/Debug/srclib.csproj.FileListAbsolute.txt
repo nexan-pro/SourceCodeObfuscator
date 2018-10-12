@@ -1,0 +1,6 @@
+E:\Project vs\SRCFU5C4T0R\srclib\bin\Debug\srclib.exe.config
+E:\Project vs\SRCFU5C4T0R\srclib\bin\Debug\srclib.exe
+E:\Project vs\SRCFU5C4T0R\srclib\bin\Debug\srclib.pdb
+E:\Project vs\SRCFU5C4T0R\srclib\obj\Debug\srclib.csprojResolveAssemblyReference.cache
+E:\Project vs\SRCFU5C4T0R\srclib\obj\Debug\srclib.exe
+E:\Project vs\SRCFU5C4T0R\srclib\obj\Debug\srclib.pdb

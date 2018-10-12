@@ -1,0 +1,9 @@
+e:\project vs\SRCFU5C4T0R\UnitTest\bin\Debug\UnitTest.dll
+e:\project vs\SRCFU5C4T0R\UnitTest\bin\Debug\UnitTest.pdb
+e:\project vs\SRCFU5C4T0R\UnitTest\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
+e:\project vs\SRCFU5C4T0R\UnitTest\bin\Debug\srclib.exe
+e:\project vs\SRCFU5C4T0R\UnitTest\bin\Debug\srclib.pdb
+e:\project vs\SRCFU5C4T0R\UnitTest\bin\Debug\ru\Microsoft.VisualStudio.QualityTools.UnitTestFramework.resources.dll
+e:\project vs\SRCFU5C4T0R\UnitTest\obj\Debug\UnitTest.csprojResolveAssemblyReference.cache
+e:\project vs\SRCFU5C4T0R\UnitTest\obj\Debug\UnitTest.dll
+e:\project vs\SRCFU5C4T0R\UnitTest\obj\Debug\UnitTest.pdb
