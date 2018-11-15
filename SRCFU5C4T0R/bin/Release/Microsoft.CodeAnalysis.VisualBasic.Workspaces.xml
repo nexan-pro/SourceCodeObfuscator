@@ -139,15 +139,6 @@ Microsoft.CodeAnalysis.VisualBasic.Workspaces
  <param name="name">The name of the expression.</param>
  <param name="arity">The number of generic type parameters.</param>
 </member>
-<member name="M:Microsoft.CodeAnalysis.VisualBasic.Extensions.ExpressionSyntaxExtensions.IsInCrefReferenceForPredefinedTypeInMemberAccessContext(Microsoft.CodeAnalysis.VisualBasic.Syntax.ExpressionSyntax)">
- <Remarks>
- Note: This helper exists solely to work around Bug 1012713. Once it is fixed, this helper must be
- deleted in favor of <see cref="M:Microsoft.CodeAnalysis.VisualBasic.Extensions.ExpressionSyntaxExtensions.InsideCrefReference(Microsoft.CodeAnalysis.VisualBasic.Syntax.ExpressionSyntax)"/>.
- Context: Bug 1012713 makes it so that the compiler doesn't support <c>PredefinedType.Member</c> inside crefs 
- (i.e. System.Int32.MaxValue is supported but Integer.MaxValue isn't). Until this bug is fixed, we don't 
- support simplifying types names Like System.Int32.MaxValue to Integer.MaxValue.
- </Remarks>
-</member>
 <member name="M:Microsoft.CodeAnalysis.VisualBasic.Extensions.ExpressionSyntaxExtensions.IsPartOfNamespaceDeclarationName(Microsoft.CodeAnalysis.SyntaxNode)">
  <summary>
  Checks if the SyntaxNode is a name of a namespace declaration. To be a namespace name, the syntax
@@ -168,7 +159,7 @@ Microsoft.CodeAnalysis.VisualBasic.Workspaces
  in a Group..By..Into or an Aggregate..Into clause.
  </summary>
 </member>
-<member name="M:Microsoft.CodeAnalysis.VisualBasic.Extensions.SemanticModelExtensions.GenerateNameForExpression(Microsoft.CodeAnalysis.SemanticModel,Microsoft.CodeAnalysis.VisualBasic.Syntax.ExpressionSyntax,System.Boolean,System.Threading.CancellationToken)">
+<member name="M:Microsoft.CodeAnalysis.VisualBasic.Extensions.SemanticModelExtensions.GenerateNameForExpression(Microsoft.CodeAnalysis.SemanticModel,Microsoft.CodeAnalysis.VisualBasic.Syntax.ExpressionSyntax,System.Boolean)">
  <summary>
  Given an expression node, tries to generate an appropriate name that can be used for
  that expression.
@@ -210,30 +201,30 @@ Microsoft.CodeAnalysis.VisualBasic.Workspaces
  
  i.e. The following returns false:
  
-   void Goo() {
+   void Foo() {
  #if true
  #endif
    }
  
  #if true
-   void Goo() {
+   void Foo() {
    }
  #endif
  
  but these return true:
  
  #if true
-   void Goo() {
+   void Foo() {
  #endif
    }
  
-   void Goo() {
+   void Foo() {
  #if true
    }
  #endif
  
  #if true
-   void Goo() {
+   void Foo() {
  #else
    }
  #endif
@@ -303,21 +294,6 @@ Microsoft.CodeAnalysis.VisualBasic.Workspaces
 <member name="M:Microsoft.CodeAnalysis.VisualBasic.Extensions.SyntaxTreeExtensions.IsLastTokenOfStatement(Microsoft.CodeAnalysis.SyntaxToken,System.Boolean)">
  <summary>
  check whether given token is the last token of a statement by walking up the spine
- </summary>
-</member>
-<member name="M:Microsoft.CodeAnalysis.VisualBasic.FindSymbols.VisualBasicDeclaredSymbolInfoFactoryService.GetSuffix(Microsoft.CodeAnalysis.VisualBasic.Syntax.ParameterListSyntax)">
- <summary>
- Builds up the suffix to show for something with parameters in navigate-to.
- While it would be nice to just use the compiler SymbolDisplay API for this,
- it would be too expensive as it requires going back to Symbols (which requires
- creating compilations, etc.) in a perf sensitive area.
- 
- So, instead, we just build a reasonable suffix using the pure syntax that a 
- user provided.  That means that if they wrote "Method(System.Int32 i)" we'll 
- show that as "Method(System.Int32)" Not "Method(Integer)".  Given that this Is
- actually what the user wrote, And it saves us from ever having to go back to
- symbols/compilations, this Is well worth it, even if it does mean we have to
- create our own 'symbol display' logic here.
  </summary>
 </member>
 <member name="T:Microsoft.CodeAnalysis.VisualBasic.Formatting.FormattingResult">
@@ -414,13 +390,6 @@ Microsoft.CodeAnalysis.VisualBasic.Workspaces
  <param name="node"></param>
  <param name="originalSemanticModel"></param>
 </member>
-<member name="T:Microsoft.CodeAnalysis.VisualBasic.Simplification.VisualBasicInferredMemberNameReducer">
- <summary>
- Complexify makes inferred names explicit for tuple elements and anonymous type members. This
- class considers which ones of those can be simplified (after the refactoring was done).
- If the inferred name of the member matches, the explicit name (from Complexifiy) can be removed.
- </summary>
-</member>
 <member name="M:Microsoft.CodeAnalysis.VisualBasic.Simplification.VisualBasicSimplificationService.NodesAndTokensToReduceComputer.Compute(Microsoft.CodeAnalysis.SyntaxNode,System.Func{Microsoft.CodeAnalysis.SyntaxNodeOrToken,System.Boolean})">
  <summary>
  Computes a list of nodes and tokens that need to be reduced in the given syntax root.
@@ -467,265 +436,265 @@ Microsoft.CodeAnalysis.VisualBasic.Workspaces
  identifier nodes have changed in the replaced lambda.
  </summary>
 </member>
-<member name="T:Microsoft.CodeAnalysis.VisualBasic.VBWorkspaceResources.VBWorkspaceResources">
+<member name="T:Microsoft.CodeAnalysis.VisualBasic.VBWorkspaceResources">
 <summary>
   A strongly-typed resource class, for looking up localized strings, etc.
 </summary>
 </member>
-<member name="P:Microsoft.CodeAnalysis.VisualBasic.VBWorkspaceResources.VBWorkspaceResources.ResourceManager">
+<member name="P:Microsoft.CodeAnalysis.VisualBasic.VBWorkspaceResources.ResourceManager">
 <summary>
   Returns the cached ResourceManager instance used by this class.
 </summary>
 </member>
-<member name="P:Microsoft.CodeAnalysis.VisualBasic.VBWorkspaceResources.VBWorkspaceResources.Culture">
+<member name="P:Microsoft.CodeAnalysis.VisualBasic.VBWorkspaceResources.Culture">
 <summary>
   Overrides the current thread's CurrentUICulture property for all
   resource lookups using this strongly typed resource class.
 </summary>
 </member>
-<member name="P:Microsoft.CodeAnalysis.VisualBasic.VBWorkspaceResources.VBWorkspaceResources.Associates_an_event_with_an_event_handler_delegate_or_lambda_expression_at_run_time">
+<member name="P:Microsoft.CodeAnalysis.VisualBasic.VBWorkspaceResources.AssociatesAnEvent">
 <summary>
   Looks up a localized string similar to Associates an event with an event handler, delegate or lambda expression at run time..
 </summary>
 </member>
-<member name="P:Microsoft.CodeAnalysis.VisualBasic.VBWorkspaceResources.VBWorkspaceResources.condition">
-<summary>
-  Looks up a localized string similar to &lt;condition&gt;.
-</summary>
-</member>
-<member name="P:Microsoft.CodeAnalysis.VisualBasic.VBWorkspaceResources.VBWorkspaceResources.Converts_an_expression_to_the_0_data_type">
-<summary>
-  Looks up a localized string similar to Converts an expression to the {0} data type..
-</summary>
-</member>
-<member name="P:Microsoft.CodeAnalysis.VisualBasic.VBWorkspaceResources.VBWorkspaceResources.Evaluated_and_returned_if_condition_evaluates_to_False">
-<summary>
-  Looks up a localized string similar to Evaluated and returned if &lt;condition&gt; evaluates to False..
-</summary>
-</member>
-<member name="P:Microsoft.CodeAnalysis.VisualBasic.VBWorkspaceResources.VBWorkspaceResources.Evaluated_and_returned_if_condition_evaluates_to_True">
-<summary>
-  Looks up a localized string similar to Evaluated and returned if &lt;condition&gt; evaluates to True..
-</summary>
-</member>
-<member name="P:Microsoft.CodeAnalysis.VisualBasic.VBWorkspaceResources.VBWorkspaceResources.Evaluated_and_returned_if_expression_evaluates_to_Nothing">
-<summary>
-  Looks up a localized string similar to Evaluated and returned if &lt;expression&gt; evaluates to Nothing..
-</summary>
-</member>
-<member name="P:Microsoft.CodeAnalysis.VisualBasic.VBWorkspaceResources.VBWorkspaceResources.event_">
-<summary>
-  Looks up a localized string similar to &lt;event&gt;.
-</summary>
-</member>
-<member name="P:Microsoft.CodeAnalysis.VisualBasic.VBWorkspaceResources.VBWorkspaceResources.expression">
-<summary>
-  Looks up a localized string similar to &lt;expression&gt;.
-</summary>
-</member>
-<member name="P:Microsoft.CodeAnalysis.VisualBasic.VBWorkspaceResources.VBWorkspaceResources.expressionIfFalse">
-<summary>
-  Looks up a localized string similar to &lt;expressionIfFalse&gt;.
-</summary>
-</member>
-<member name="P:Microsoft.CodeAnalysis.VisualBasic.VBWorkspaceResources.VBWorkspaceResources.expressionIfNothing">
-<summary>
-  Looks up a localized string similar to &lt;expressionIfNothing&gt;.
-</summary>
-</member>
-<member name="P:Microsoft.CodeAnalysis.VisualBasic.VBWorkspaceResources.VBWorkspaceResources.expressionIfTrue">
-<summary>
-  Looks up a localized string similar to &lt;expressionIfTrue&gt;.
-</summary>
-</member>
-<member name="P:Microsoft.CodeAnalysis.VisualBasic.VBWorkspaceResources.VBWorkspaceResources.handler">
-<summary>
-  Looks up a localized string similar to &lt;handler&gt;.
-</summary>
-</member>
-<member name="P:Microsoft.CodeAnalysis.VisualBasic.VBWorkspaceResources.VBWorkspaceResources.If_condition_returns_True_the_function_calculates_and_returns_expressionIfTrue_Otherwise_it_returns_expressionIfFalse">
-<summary>
-  Looks up a localized string similar to If &lt;condition&gt; returns True, the function calculates and returns &lt;expressionIfTrue&gt;. Otherwise, it returns &lt;expressionIfFalse&gt;..
-</summary>
-</member>
-<member name="P:Microsoft.CodeAnalysis.VisualBasic.VBWorkspaceResources.VBWorkspaceResources.If_expression_evaluates_to_a_reference_or_Nullable_value_that_is_not_Nothing_the_function_returns_that_value_Otherwise_it_calculates_and_returns_expressionIfNothing">
-<summary>
-  Looks up a localized string similar to If &lt;expression&gt; evaluates to a reference or Nullable value that is not Nothing, the function returns that value. Otherwise, it calculates and returns &lt;expressionIfNothing&gt;..
-</summary>
-</member>
-<member name="P:Microsoft.CodeAnalysis.VisualBasic.VBWorkspaceResources.VBWorkspaceResources.Introduces_a_type_conversion_operation_similar_to_CType_The_difference_is_that_CType_succeeds_as_long_as_there_is_a_valid_conversion_whereas_DirectCast_requires_that_one_type_inherit_from_or_implement_the_other_type">
-<summary>
-  Looks up a localized string similar to Introduces a type conversion operation similar to CType. The difference is that CType succeeds as long as there is a valid conversion, whereas DirectCast requires that one type inherit from or implement the other type..
-</summary>
-</member>
-<member name="P:Microsoft.CodeAnalysis.VisualBasic.VBWorkspaceResources.VBWorkspaceResources.Introduces_a_type_conversion_operation_that_does_not_throw_an_exception_If_an_attempted_conversion_fails_TryCast_returns_Nothing_which_your_program_can_test_for">
-<summary>
-  Looks up a localized string similar to Introduces a type conversion operation that does not throw an exception. If an attempted conversion fails, TryCast returns Nothing, which your program can test for..
-</summary>
-</member>
-<member name="P:Microsoft.CodeAnalysis.VisualBasic.VBWorkspaceResources.VBWorkspaceResources.length">
-<summary>
-  Looks up a localized string similar to &lt;length&gt;.
-</summary>
-</member>
-<member name="P:Microsoft.CodeAnalysis.VisualBasic.VBWorkspaceResources.VBWorkspaceResources.Namespace_can_not_be_added_in_this_destination">
-<summary>
-  Looks up a localized string similar to Namespace can not be added in this destination..
-</summary>
-</member>
-<member name="P:Microsoft.CodeAnalysis.VisualBasic.VBWorkspaceResources.VBWorkspaceResources.Node_does_not_descend_from_root">
-<summary>
-  Looks up a localized string similar to Node does not descend from root..
-</summary>
-</member>
-<member name="P:Microsoft.CodeAnalysis.VisualBasic.VBWorkspaceResources.VBWorkspaceResources.Node_not_in_parent_s_child_list">
-<summary>
-  Looks up a localized string similar to Node not in parent&apos;s child list.
-</summary>
-</member>
-<member name="P:Microsoft.CodeAnalysis.VisualBasic.VBWorkspaceResources.VBWorkspaceResources.Only_attributes_expressions_or_statements_can_be_made_explicit">
+<member name="P:Microsoft.CodeAnalysis.VisualBasic.VBWorkspaceResources.CannotMakeExplicit">
 <summary>
   Looks up a localized string similar to Only attributes, expressions or statements can be made explicit.
 </summary>
 </member>
-<member name="P:Microsoft.CodeAnalysis.VisualBasic.VBWorkspaceResources.VBWorkspaceResources.Produces_a_string_for_the_name_of_the_specified_type_or_member">
+<member name="P:Microsoft.CodeAnalysis.VisualBasic.VBWorkspaceResources.Condition">
 <summary>
-  Looks up a localized string similar to Produces a string for the name of the specified type or member..
+  Looks up a localized string similar to &lt;condition&gt;.
 </summary>
 </member>
-<member name="P:Microsoft.CodeAnalysis.VisualBasic.VBWorkspaceResources.VBWorkspaceResources.Removes_the_association_between_an_event_and_an_event_handler_or_delegate_at_run_time">
+<member name="P:Microsoft.CodeAnalysis.VisualBasic.VBWorkspaceResources.ConvertsToDataType">
 <summary>
-  Looks up a localized string similar to Removes the association between an event and an event handler or delegate at run time..
+  Looks up a localized string similar to Converts an expression to the {0} data type..
 </summary>
 </member>
-<member name="P:Microsoft.CodeAnalysis.VisualBasic.VBWorkspaceResources.VBWorkspaceResources.Replaces_a_specified_number_of_characters_in_a_String_variable_with_characters_from_another_string">
+<member name="P:Microsoft.CodeAnalysis.VisualBasic.VBWorkspaceResources.EvaluatedAndReturnedIfFalse">
 <summary>
-  Looks up a localized string similar to Replaces a specified number of characters in a String variable with characters from another string..
+  Looks up a localized string similar to Evaluated and returned if &lt;condition&gt; evaluates to False..
 </summary>
 </member>
-<member name="P:Microsoft.CodeAnalysis.VisualBasic.VBWorkspaceResources.VBWorkspaceResources.result">
+<member name="P:Microsoft.CodeAnalysis.VisualBasic.VBWorkspaceResources.EvaluatedAndReturnedIfTrue">
 <summary>
-  Looks up a localized string similar to &lt;result&gt;.
+  Looks up a localized string similar to Evaluated and returned if &lt;condition&gt; evaluates to True..
 </summary>
 </member>
-<member name="P:Microsoft.CodeAnalysis.VisualBasic.VBWorkspaceResources.VBWorkspaceResources.Returned_if_it_evaluates_to_a_reference_or_nullable_type_that_is_not_Nothing">
+<member name="P:Microsoft.CodeAnalysis.VisualBasic.VBWorkspaceResources.Event1">
 <summary>
-  Looks up a localized string similar to Returned if it evaluates to a reference or nullable type that is not Nothing..
+  Looks up a localized string similar to &lt;event&gt;.
 </summary>
 </member>
-<member name="P:Microsoft.CodeAnalysis.VisualBasic.VBWorkspaceResources.VBWorkspaceResources.Returns_a_System_Type_object_for_the_specified_type_name">
-<summary>
-  Looks up a localized string similar to Returns a System.Type object for the specified type name..
-</summary>
-</member>
-<member name="P:Microsoft.CodeAnalysis.VisualBasic.VBWorkspaceResources.VBWorkspaceResources.Returns_the_result_of_explicitly_converting_an_expression_to_a_specified_data_type">
-<summary>
-  Looks up a localized string similar to Returns the result of explicitly converting an expression to a specified data type..
-</summary>
-</member>
-<member name="P:Microsoft.CodeAnalysis.VisualBasic.VBWorkspaceResources.VBWorkspaceResources.Returns_the_System_Xml_Linq_XNamespace_object_corresponding_to_the_specified_XML_namespace_prefix">
-<summary>
-  Looks up a localized string similar to Returns the System.Xml.Linq.XNamespace object corresponding to the specified XML namespace prefix..
-</summary>
-</member>
-<member name="P:Microsoft.CodeAnalysis.VisualBasic.VBWorkspaceResources.VBWorkspaceResources.startIndex">
-<summary>
-  Looks up a localized string similar to &lt;startIndex&gt;.
-</summary>
-</member>
-<member name="P:Microsoft.CodeAnalysis.VisualBasic.VBWorkspaceResources.VBWorkspaceResources.stringExpression">
-<summary>
-  Looks up a localized string similar to &lt;stringExpression&gt;.
-</summary>
-</member>
-<member name="P:Microsoft.CodeAnalysis.VisualBasic.VBWorkspaceResources.VBWorkspaceResources.stringName">
-<summary>
-  Looks up a localized string similar to &lt;stringName&gt;.
-</summary>
-</member>
-<member name="P:Microsoft.CodeAnalysis.VisualBasic.VBWorkspaceResources.VBWorkspaceResources.The_event_handler_to_associate_with_the_event_This_may_take_the_form_of_AddressOf_eventHandler_delegate_lambdaExpression">
+<member name="P:Microsoft.CodeAnalysis.VisualBasic.VBWorkspaceResources.EventHandlerToAssociate">
 <summary>
   Looks up a localized string similar to The event handler to associate with the event. This may take the form of { AddressOf &lt;eventHandler&gt; | &lt;delegate&gt; | &lt;lambdaExpression&gt; }..
 </summary>
 </member>
-<member name="P:Microsoft.CodeAnalysis.VisualBasic.VBWorkspaceResources.VBWorkspaceResources.The_event_handler_to_disassociate_from_the_event_This_may_take_the_form_of_AddressOf_eventHandler_delegate">
+<member name="P:Microsoft.CodeAnalysis.VisualBasic.VBWorkspaceResources.EventHandlerToDisassociate">
 <summary>
   Looks up a localized string similar to The event handler to disassociate from the event. This may take the form of { AddressOf &lt;eventHandler&gt; | &lt;delegate&gt; }..
 </summary>
 </member>
-<member name="P:Microsoft.CodeAnalysis.VisualBasic.VBWorkspaceResources.VBWorkspaceResources.The_event_to_associate_an_event_handler_delegate_or_lambda_expression_with">
+<member name="P:Microsoft.CodeAnalysis.VisualBasic.VBWorkspaceResources.EventToAssociate">
 <summary>
   Looks up a localized string similar to The event to associate an event handler, delegate or lambda expression with..
 </summary>
 </member>
-<member name="P:Microsoft.CodeAnalysis.VisualBasic.VBWorkspaceResources.VBWorkspaceResources.The_event_to_disassociate_an_event_handler_or_delegate_from">
+<member name="P:Microsoft.CodeAnalysis.VisualBasic.VBWorkspaceResources.EventToDisassociate">
 <summary>
   Looks up a localized string similar to The event to disassociate an event handler or delegate from..
 </summary>
 </member>
-<member name="P:Microsoft.CodeAnalysis.VisualBasic.VBWorkspaceResources.VBWorkspaceResources.The_expression_to_be_evaluated_and_converted">
+<member name="P:Microsoft.CodeAnalysis.VisualBasic.VBWorkspaceResources.Expression1">
+<summary>
+  Looks up a localized string similar to &lt;expression&gt;.
+</summary>
+</member>
+<member name="P:Microsoft.CodeAnalysis.VisualBasic.VBWorkspaceResources.ExpressionEvalReturns">
+<summary>
+  Looks up a localized string similar to If &lt;expression&gt; evaluates to a reference or Nullable value that is not Nothing, the function returns that value. Otherwise, it calculates and returns &lt;expressionIfNothing&gt;..
+</summary>
+</member>
+<member name="P:Microsoft.CodeAnalysis.VisualBasic.VBWorkspaceResources.ExpressionIfFalse">
+<summary>
+  Looks up a localized string similar to &lt;expressionIfFalse&gt;.
+</summary>
+</member>
+<member name="P:Microsoft.CodeAnalysis.VisualBasic.VBWorkspaceResources.ExpressionIfNothing">
+<summary>
+  Looks up a localized string similar to &lt;expressionIfNothing&gt;.
+</summary>
+</member>
+<member name="P:Microsoft.CodeAnalysis.VisualBasic.VBWorkspaceResources.ExpressionIfTrue">
+<summary>
+  Looks up a localized string similar to &lt;expressionIfTrue&gt;.
+</summary>
+</member>
+<member name="P:Microsoft.CodeAnalysis.VisualBasic.VBWorkspaceResources.ExpressionToConvert">
 <summary>
   Looks up a localized string similar to The expression to be evaluated and converted..
 </summary>
 </member>
-<member name="P:Microsoft.CodeAnalysis.VisualBasic.VBWorkspaceResources.VBWorkspaceResources.The_expression_to_evaluate">
+<member name="P:Microsoft.CodeAnalysis.VisualBasic.VBWorkspaceResources.ExpressionToEvaluate">
 <summary>
   Looks up a localized string similar to The expression to evaluate..
 </summary>
 </member>
-<member name="P:Microsoft.CodeAnalysis.VisualBasic.VBWorkspaceResources.VBWorkspaceResources.The_name_of_the_data_type_to_which_the_value_of_expression_will_be_converted">
+<member name="P:Microsoft.CodeAnalysis.VisualBasic.VBWorkspaceResources.Handler">
 <summary>
-  Looks up a localized string similar to The name of the data type to which the value of expression will be converted..
+  Looks up a localized string similar to &lt;handler&gt;.
 </summary>
 </member>
-<member name="P:Microsoft.CodeAnalysis.VisualBasic.VBWorkspaceResources.VBWorkspaceResources.The_name_of_the_string_variable_to_modify">
+<member name="P:Microsoft.CodeAnalysis.VisualBasic.VBWorkspaceResources.IfConditionReturnsResults">
+<summary>
+  Looks up a localized string similar to If &lt;condition&gt; returns True, the function calculates and returns &lt;expressionIfTrue&gt;. Otherwise, it returns &lt;expressionIfFalse&gt;..
+</summary>
+</member>
+<member name="P:Microsoft.CodeAnalysis.VisualBasic.VBWorkspaceResources.IntroducesSafeTypeConversion">
+<summary>
+  Looks up a localized string similar to Introduces a type conversion operation that does not throw an exception. If an attempted conversion fails, TryCast returns Nothing, which your program can test for..
+</summary>
+</member>
+<member name="P:Microsoft.CodeAnalysis.VisualBasic.VBWorkspaceResources.IntroducesTypeConversion">
+<summary>
+  Looks up a localized string similar to Introduces a type conversion operation similar to CType. The difference is that CType succeeds as long as there is a valid conversion, whereas DirectCast requires that one type inherit from or implement the other type..
+</summary>
+</member>
+<member name="P:Microsoft.CodeAnalysis.VisualBasic.VBWorkspaceResources.Length">
+<summary>
+  Looks up a localized string similar to &lt;length&gt;.
+</summary>
+</member>
+<member name="P:Microsoft.CodeAnalysis.VisualBasic.VBWorkspaceResources.NameOfDocumentation">
+<summary>
+  Looks up a localized string similar to Produces a string for the name of the specified type or member..
+</summary>
+</member>
+<member name="P:Microsoft.CodeAnalysis.VisualBasic.VBWorkspaceResources.NameOfStringVariable">
 <summary>
   Looks up a localized string similar to The name of the string variable to modify..
 </summary>
 </member>
-<member name="P:Microsoft.CodeAnalysis.VisualBasic.VBWorkspaceResources.VBWorkspaceResources.The_number_of_characters_to_replace_If_omitted_the_length_of_stringExpression_is_used">
+<member name="P:Microsoft.CodeAnalysis.VisualBasic.VBWorkspaceResources.NameOfTypeToConvert">
+<summary>
+  Looks up a localized string similar to The name of the data type to which the value of expression will be converted..
+</summary>
+</member>
+<member name="P:Microsoft.CodeAnalysis.VisualBasic.VBWorkspaceResources.NamespaceCannotBeAdded">
+<summary>
+  Looks up a localized string similar to Namespace can not be added in this destination..
+</summary>
+</member>
+<member name="P:Microsoft.CodeAnalysis.VisualBasic.VBWorkspaceResources.NodeDoesNotDescendFromRoot">
+<summary>
+  Looks up a localized string similar to Node does not descend from root..
+</summary>
+</member>
+<member name="P:Microsoft.CodeAnalysis.VisualBasic.VBWorkspaceResources.NodeNotInParentsChildList">
+<summary>
+  Looks up a localized string similar to Node not in parent&apos;s child list.
+</summary>
+</member>
+<member name="P:Microsoft.CodeAnalysis.VisualBasic.VBWorkspaceResources.NumberOfCharsToReplace">
 <summary>
   Looks up a localized string similar to The number of characters to replace. If omitted, the length of &lt;stringExpression&gt; is used..
 </summary>
 </member>
-<member name="P:Microsoft.CodeAnalysis.VisualBasic.VBWorkspaceResources.VBWorkspaceResources.The_one_based_character_position_in_the_string_where_the_replacement_of_text_begins">
+<member name="P:Microsoft.CodeAnalysis.VisualBasic.VBWorkspaceResources.OneBasedStartPos">
 <summary>
   Looks up a localized string similar to The one-based character position in the string where the replacement of text begins..
 </summary>
 </member>
-<member name="P:Microsoft.CodeAnalysis.VisualBasic.VBWorkspaceResources.VBWorkspaceResources.The_type_name_to_return_a_System_Type_object_for">
+<member name="P:Microsoft.CodeAnalysis.VisualBasic.VBWorkspaceResources.RemovesEventAssociation">
 <summary>
-  Looks up a localized string similar to The type name to return a System.Type object for..
+  Looks up a localized string similar to Removes the association between an event and an event handler or delegate at run time..
 </summary>
 </member>
-<member name="P:Microsoft.CodeAnalysis.VisualBasic.VBWorkspaceResources.VBWorkspaceResources.The_type_of_member_to_return_the_name_of">
+<member name="P:Microsoft.CodeAnalysis.VisualBasic.VBWorkspaceResources.ReplacesChars">
 <summary>
-  Looks up a localized string similar to The type of member to return the name of..
+  Looks up a localized string similar to Replaces a specified number of characters in a String variable with characters from another string..
 </summary>
 </member>
-<member name="P:Microsoft.CodeAnalysis.VisualBasic.VBWorkspaceResources.VBWorkspaceResources.The_XML_namespace_prefix_to_return_a_System_Xml_Linq_XNamespace_object_for_If_this_is_omitted_the_object_for_the_default_XML_namespace_is_returned">
+<member name="P:Microsoft.CodeAnalysis.VisualBasic.VBWorkspaceResources.Result">
 <summary>
-  Looks up a localized string similar to The XML namespace prefix to return a System.Xml.Linq.XNamespace object for. If this is omitted, the object for the default XML namespace is returned..
+  Looks up a localized string similar to &lt;result&gt;.
 </summary>
 </member>
-<member name="P:Microsoft.CodeAnalysis.VisualBasic.VBWorkspaceResources.VBWorkspaceResources.Trivia_is_not_associated_with_token">
+<member name="P:Microsoft.CodeAnalysis.VisualBasic.VBWorkspaceResources.ReturnedIfINotNothing">
+<summary>
+  Looks up a localized string similar to Returned if it evaluates to a reference or nullable type that is not Nothing..
+</summary>
+</member>
+<member name="P:Microsoft.CodeAnalysis.VisualBasic.VBWorkspaceResources.ReturnedIfNothing">
+<summary>
+  Looks up a localized string similar to Evaluated and returned if &lt;expression&gt; evaluates to Nothing..
+</summary>
+</member>
+<member name="P:Microsoft.CodeAnalysis.VisualBasic.VBWorkspaceResources.ReturnsConvertResult">
+<summary>
+  Looks up a localized string similar to Returns the result of explicitly converting an expression to a specified data type..
+</summary>
+</member>
+<member name="P:Microsoft.CodeAnalysis.VisualBasic.VBWorkspaceResources.ReturnsSystemTypeObject">
+<summary>
+  Looks up a localized string similar to Returns a System.Type object for the specified type name..
+</summary>
+</member>
+<member name="P:Microsoft.CodeAnalysis.VisualBasic.VBWorkspaceResources.ReturnsXNamespaceObject">
+<summary>
+  Looks up a localized string similar to Returns the System.Xml.Linq.XNamespace object corresponding to the specified XML namespace prefix..
+</summary>
+</member>
+<member name="P:Microsoft.CodeAnalysis.VisualBasic.VBWorkspaceResources.StartIndex">
+<summary>
+  Looks up a localized string similar to &lt;startIndex&gt;.
+</summary>
+</member>
+<member name="P:Microsoft.CodeAnalysis.VisualBasic.VBWorkspaceResources.StringExpression">
+<summary>
+  Looks up a localized string similar to &lt;stringExpression&gt;.
+</summary>
+</member>
+<member name="P:Microsoft.CodeAnalysis.VisualBasic.VBWorkspaceResources.StringName">
+<summary>
+  Looks up a localized string similar to &lt;stringName&gt;.
+</summary>
+</member>
+<member name="P:Microsoft.CodeAnalysis.VisualBasic.VBWorkspaceResources.TriviaIsNotAssociatedWithToken">
 <summary>
   Looks up a localized string similar to Trivia is not associated with token.
 </summary>
 </member>
-<member name="P:Microsoft.CodeAnalysis.VisualBasic.VBWorkspaceResources.VBWorkspaceResources.typeName">
+<member name="P:Microsoft.CodeAnalysis.VisualBasic.VBWorkspaceResources.Typename">
 <summary>
   Looks up a localized string similar to &lt;typeName&gt;.
 </summary>
 </member>
-<member name="P:Microsoft.CodeAnalysis.VisualBasic.VBWorkspaceResources.VBWorkspaceResources.typeOrMember">
+<member name="P:Microsoft.CodeAnalysis.VisualBasic.VBWorkspaceResources.TypeOrMember">
 <summary>
   Looks up a localized string similar to &lt;typeOrMember&gt;.
 </summary>
 </member>
-<member name="P:Microsoft.CodeAnalysis.VisualBasic.VBWorkspaceResources.VBWorkspaceResources.xmlNamespacePrefix">
+<member name="P:Microsoft.CodeAnalysis.VisualBasic.VBWorkspaceResources.TypeOrMemberNameToReturn">
+<summary>
+  Looks up a localized string similar to The type of member to return the name of..
+</summary>
+</member>
+<member name="P:Microsoft.CodeAnalysis.VisualBasic.VBWorkspaceResources.TypeToReturnObjectFor">
+<summary>
+  Looks up a localized string similar to The type name to return a System.Type object for..
+</summary>
+</member>
+<member name="P:Microsoft.CodeAnalysis.VisualBasic.VBWorkspaceResources.XmlNamespacePrefix">
 <summary>
   Looks up a localized string similar to &lt;xmlNamespacePrefix&gt;.
+</summary>
+</member>
+<member name="P:Microsoft.CodeAnalysis.VisualBasic.VBWorkspaceResources.XMLNSToReturnObjectFor">
+<summary>
+  Looks up a localized string similar to The XML namespace prefix to return a System.Xml.Linq.XNamespace object for. If this is omitted, the object for the default XML namespace is returned..
 </summary>
 </member>
 <member name="M:Microsoft.CodeAnalysis.CodeCleanup.Providers.FixIncorrectTokensCodeCleanupProvider.FixIncorrectTokensRewriter.RewriteEndIfStatementOrDirectiveSyntax(Microsoft.CodeAnalysis.SyntaxNode,Microsoft.CodeAnalysis.SyntaxToken,Microsoft.CodeAnalysis.SyntaxToken)">
