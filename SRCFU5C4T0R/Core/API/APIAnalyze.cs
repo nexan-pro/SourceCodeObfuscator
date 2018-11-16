@@ -42,6 +42,7 @@ namespace SRCFU5C4T0R.Core.API {
             var nameOfVars = root.DescendantNodes().OfType<VariableDeclarationSyntax>();
             foreach (var vars in nameOfVars)
                 Console.WriteLine(vars.Variables.First().Identifier.Value);
+            Console.Write("\r\n");
         }
         /// <summary>
         /// Get 1-rank string array of methods (one method = one element of array)

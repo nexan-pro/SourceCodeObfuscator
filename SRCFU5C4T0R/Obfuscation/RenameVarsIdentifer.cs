@@ -45,6 +45,7 @@ namespace SRCFU5C4T0R.Obfuscation {
             }
 
             var documents = solution.Projects.SelectMany(x => x.Documents).Select(x => x.Id).ToList();
+
             foreach(var documentId in documents) {
                 List<VariableDeclarationSyntax> vars;
                 int i;
@@ -52,6 +53,7 @@ namespace SRCFU5C4T0R.Obfuscation {
                     var doc = solution.GetDocument(documentId);
                     var model = doc.GetSemanticModelAsync().Result;
                     var syntax = doc.GetSyntaxRootAsync().Result;
+                    Console.WriteLine("qwe = " + syntax.SyntaxTree);
                     vars = syntax.DescendantNodes()
                       .OfType<VariableDeclarationSyntax>()
                       .Where(x => x.Variables.Count(z => !z.Identifier.ValueText.StartsWith("__0x")) > 0)
@@ -60,8 +62,7 @@ namespace SRCFU5C4T0R.Obfuscation {
                     for(i = 0; i < vars.Count; i++) {
                         foreach(var vr in vars[i].Variables) {
                             var symbol = model.GetDeclaredSymbol(vr);
-
-                            var newName = Utils.String.getRandomStr(300);
+                            var newName = "__0x" + Utils.String.to_SHA1(vr.Identifier.ValueText);
                             Console.WriteLine("Renaming variable: " + vr.Identifier.ValueText + " to " + newName + $" {vr.Kind()}");
                             solution = Renamer.RenameSymbolAsync(solution, symbol, newName, null).Result;
                             break;
@@ -76,7 +77,6 @@ namespace SRCFU5C4T0R.Obfuscation {
                 var model = document.GetSemanticModelAsync().Result;
                 var syntax = document.GetSyntaxRootAsync().Result;
                 src += syntax.SyntaxTree;
-                Console.WriteLine(syntax.SyntaxTree);
             }
             return (src);
         }

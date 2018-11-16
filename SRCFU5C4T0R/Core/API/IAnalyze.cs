@@ -15,8 +15,7 @@ namespace SRCFU5C4T0R.Core.API
     /// <summary>
     /// Interface for load & analyze C# code
     /// </summary>
-    interface IAnalyze
-    {
+    interface IAnalyze {
         /// <summary>
         /// Method for load C# code from string variable
         /// </summary>

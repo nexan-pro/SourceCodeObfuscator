@@ -201,6 +201,7 @@
     <Compile Include="Obfuscation\EncryptSting.cs" />
     <Compile Include="Obfuscation\Mutation.cs" />
     <Compile Include="Obfuscation\RenameVarsIdentifer.cs" />
+    <Compile Include="Obfuscation\Utils\ProjInfo.cs" />
     <Compile Include="Obfuscation\Utils\String.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
