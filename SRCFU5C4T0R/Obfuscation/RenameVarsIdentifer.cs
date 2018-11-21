@@ -45,7 +45,7 @@ namespace SRCFU5C4T0R.Obfuscation {
             }
 
             var documents = solution.Projects.SelectMany(x => x.Documents).Select(x => x.Id).ToList();
-
+            
             foreach(var documentId in documents) {
                 List<VariableDeclarationSyntax> vars;
                 int i;
@@ -53,7 +53,6 @@ namespace SRCFU5C4T0R.Obfuscation {
                     var doc = solution.GetDocument(documentId);
                     var model = doc.GetSemanticModelAsync().Result;
                     var syntax = doc.GetSyntaxRootAsync().Result;
-                    Console.WriteLine("qwe = " + syntax.SyntaxTree);
                     vars = syntax.DescendantNodes()
                       .OfType<VariableDeclarationSyntax>()
                       .Where(x => x.Variables.Count(z => !z.Identifier.ValueText.StartsWith("__0x")) > 0)

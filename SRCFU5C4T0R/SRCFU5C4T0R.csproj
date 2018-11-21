@@ -203,7 +203,7 @@
     <Compile Include="Obfuscation\RenameVarsIdentifer.cs" />
     <Compile Include="Obfuscation\Utils\ProjInfo.cs" />
     <Compile Include="Obfuscation\Utils\String.cs" />
-    <Compile Include="Program.cs" />
+    <Compile Include="Example.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

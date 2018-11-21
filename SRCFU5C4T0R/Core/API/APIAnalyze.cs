@@ -103,10 +103,13 @@ namespace SRCFU5C4T0R.Core.API {
         /// </summary>
         public void printVariableExpressions() {
             root = (CompilationUnitSyntax)tree.GetRoot();
-            var varsExpr = root.DescendantNodes().OfType<AssignmentExpressionSyntax>();
-            foreach (var expr in varsExpr)
+            var declareVarsExpr = root.DescendantNodes().OfType<VariableDeclarationSyntax>();
+            var assignmentVarsExpr = root.DescendantNodes().OfType<AssignmentExpressionSyntax>();
+            foreach (var expr in declareVarsExpr)
+                Console.WriteLine(expr.Variables.Last().Initializer.Value);
+            foreach(var expr in assignmentVarsExpr)
                 Console.WriteLine(expr);
-        }
+  }
         /// <summary>
         /// Write to array all variables expressions 
         /// </summary>
@@ -115,13 +118,18 @@ namespace SRCFU5C4T0R.Core.API {
         public string[] getArrayOfVariableExpressions(string[] src) {
             ecx = 0;
             root = (CompilationUnitSyntax)tree.GetRoot();
-            var varsExpr = root.DescendantNodes().OfType<AssignmentExpressionSyntax>();
-            foreach (var expr in varsExpr)
-            {
-                src[ecx] = expr.ToString();
+            var declareVarsExpr = root.DescendantNodes().OfType<VariableDeclarationSyntax>();
+            var assignmentVarsExpr = root.DescendantNodes().OfType<AssignmentExpressionSyntax>();
+            foreach (var expr in declareVarsExpr) {
+                if (expr.Variables.Last().Initializer == null) continue;
+                src[ecx] = expr.Variables.Last().Initializer.Value.ToString();
                 ecx++;
             }
-            return (src);
+            foreach(var expr in assignmentVarsExpr) {
+                src[ecx] = expr.GetLastToken().Value.ToString();
+                ecx++;
+            }
+   return (src);
         }
         /// <summary>
         /// Get all entry point parameters
