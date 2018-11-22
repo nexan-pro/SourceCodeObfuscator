@@ -18,7 +18,7 @@ namespace SRCFU5C4T0R.Obfuscation {
     /// <summary>
     /// Class of renamin variables identifer
     /// </summary>
-    class RenameVarsIdentifer {
+    class RenameVarsIdentifers {
         /// <summary>
         /// Renaming variables identifer 
         /// </summary>

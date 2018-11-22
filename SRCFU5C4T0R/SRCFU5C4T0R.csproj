@@ -198,12 +198,13 @@
   <ItemGroup>
     <Compile Include="Core\API\APIAnalyze.cs" />
     <Compile Include="Core\API\IAnalyze.cs" />
+    <Compile Include="Examples\RenameVarsIdentifersExample.cs" />
     <Compile Include="Obfuscation\EncryptSting.cs" />
     <Compile Include="Obfuscation\Mutation.cs" />
-    <Compile Include="Obfuscation\RenameVarsIdentifer.cs" />
+    <Compile Include="Obfuscation\RenameVarsIdentifers.cs" />
     <Compile Include="Obfuscation\Utils\ProjInfo.cs" />
     <Compile Include="Obfuscation\Utils\String.cs" />
-    <Compile Include="Example.cs" />
+    <Compile Include="Examples\APIexample.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
