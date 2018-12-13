@@ -8,14 +8,15 @@ using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Microsoft.CodeAnalysis.FindSymbols;
 using Microsoft.CodeAnalysis.Rename;
-
+using System.Threading.Tasks;
 
 namespace SRCFU5C4T0R.Core.API
 {
   /// <summary>
-  /// Interface for load & analyze C# code
+  /// Interface for load && analyze C# code
   /// </summary>
-  interface IAnalyze {
+  public interface IAnalyze {
+    Solution CreateSolution(string projName);
     /// <summary>
     /// Method for load C# code from string variable
     /// </summary>
@@ -33,7 +34,11 @@ namespace SRCFU5C4T0R.Core.API
     /// <summary>
     /// Print all variables expressions
     /// </summary>
-    void printVariableExpressions();
+    void printVarsInitAndOperations();
+    /// <summary>
+    /// Get all callable methods
+    /// </summary>
+    Task<string[]> getCallableMethods(string[] src);
     /// <summary>
     /// Get 1 rank string-array with name of declare methods
     /// </summary>
@@ -62,7 +67,7 @@ namespace SRCFU5C4T0R.Core.API
     /// </summary>
     /// <param name="src">Array which you want to modifie</param>
     /// <returns>Modified array</returns>
-    string[] getArrayOfVariableExpressions(string[] src);
+    string[] getArrayOfVarsInitAndOperations(string[] src);
     /// <summary>
     /// Get all ecntry point parameters
     /// </summary>

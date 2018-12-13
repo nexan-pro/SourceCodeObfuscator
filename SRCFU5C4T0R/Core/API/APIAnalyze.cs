@@ -4,24 +4,41 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.CodeAnalysis;
-using SRCFU5C4T0R.Core.API;
 using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
+using Microsoft.CodeAnalysis.MSBuild;
+using System.Runtime.CompilerServices;
+
+
+[assembly:InternalsVisibleTo("UnitTest")]
 
 namespace SRCFU5C4T0R.Core.API {
-class APIAnalyze : IAnalyze {
+internal class APIAnalyze : IAnalyze {
   public SyntaxTree tree;
   public CompilationUnitSyntax root;
+  static public ProjectId projId = ProjectId.CreateNewId();
+  //TODO: UI
+  static public string path = @"E:\Project vs\ConsoleApp_CSharp\ConsoleApp_CSharp\ConsoleApp_CSharp.csproj"; // !< path to project
   int ecx = 0; //HACK: 
+
+  public Solution CreateSolution(string projName) {
+    MSBuildWorkspace workspace = MSBuildWorkspace.Create();
+    //var projId = ProjectId.CreateNewId();
+    var versionStamp = VersionStamp.Create();
+    var projectInfo = ProjectInfo.Create(projId, versionStamp, projName, projName, LanguageNames.CSharp);
+    return workspace.CurrentSolution.AddProject(projectInfo);
+  }
+
   /// <summary>
   /// Implementation of method for load C# code from string variable
   /// </summary>
   /// <param name="src"></param>
-  /// <returns>Our loaded tree</returns>
+  /// <returns>Loaded tree</returns>
   public SyntaxTree LoadCode(string src) {
     tree = CSharpSyntaxTree.ParseText(src);
     return (tree);
   }
+
   /// <summary>
   /// Print all names of methods in loaded source code
   /// </summary>
@@ -33,6 +50,7 @@ class APIAnalyze : IAnalyze {
       Console.WriteLine("{0}", id);
     }
   }
+
   /// <summary>
   /// Print all names of variables in loaded source code
   /// </summary>
@@ -43,6 +61,7 @@ class APIAnalyze : IAnalyze {
       Console.WriteLine(vars.Variables.First().Identifier.Value);
     Console.Write("\r\n");
   }
+
   /// <summary>
   /// Get 1-rank string array of methods (one method = one element of array)
   /// </summary>
@@ -54,6 +73,7 @@ class APIAnalyze : IAnalyze {
       src[i] = dst.ElementAt(i).ToString();
       return (src);
   }
+
   /// <summary>
   /// Write all methods in 1-rank string array
   /// </summary>
@@ -69,6 +89,7 @@ class APIAnalyze : IAnalyze {
     }
     return (src);
   }
+
   /// <summary>
   /// Method which write all name of variables in 1-rank string array
   /// </summary>
@@ -81,6 +102,7 @@ class APIAnalyze : IAnalyze {
       src[i] = varDeclorations.ElementAt(i).ToString();
     return (src);
   }
+
   /// <summary>
   /// Method which write all declare variables identificators in 1-rank string array
   /// </summary>
@@ -96,10 +118,11 @@ class APIAnalyze : IAnalyze {
     }
     return (src);
   }
+
   /// <summary>
-  /// Print all expressions which use declaration variables
+  /// Print all variables initializers and right hand side of operations in source code
   /// </summary>
-  public void printVariableExpressions() {
+  public void printVarsInitAndOperations() {
     root = (CompilationUnitSyntax)tree.GetRoot();
     var declareVarsExpr = root.DescendantNodes().OfType<VariableDeclarationSyntax>();
     var assignmentVarsExpr = root.DescendantNodes().OfType<AssignmentExpressionSyntax>();
@@ -108,16 +131,44 @@ class APIAnalyze : IAnalyze {
     foreach(var expr in assignmentVarsExpr)
       Console.WriteLine(expr.Right);
   }
+
   /// <summary>
-  /// Write to array all variables expressions 
+  /// Write to array all methods which will be called
+  /// </summary>
+  /// <param name="src">Array which will be storing all callable methods</param>
+  /// <returns>String array which contains all callable methods in source code</returns>
+  public async Task<string[]> getCallableMethods(string[] src) {
+   var workspace = MSBuildWorkspace.Create();
+   int ecx = 0;
+   var solution = await workspace.OpenSolutionAsync(@"E:\Project vs\ConsoleApp_CSharp\ConsoleApp_CSharp.sln");
+   var project = solution.Projects.Single();
+   var compilation = await project.GetCompilationAsync();
+
+   foreach(var syntaxTree in compilation.SyntaxTrees) {
+     var root = await syntaxTree.GetRootAsync();
+     var model = compilation.GetSemanticModel(syntaxTree);
+
+     var invocations = root.DescendantNodes().OfType<InvocationExpressionSyntax>();
+     foreach(var invocation in invocations) {
+       var expression = invocation.Expression;
+       src[ecx] += invocation + "\n";
+       ecx++;
+       }
+     }
+   return src;
+  }
+
+  /// <summary>
+  /// Write to array all variables initializers and operations 
   /// </summary>
   /// <param name="src">Array which will be modified</param>
-  /// <returns>String array which contains all variables expressions of source code</returns>
-  public string[] getArrayOfVariableExpressions(string[] src) {
+  /// <returns>String array which contains all variables initializers and right hand side of operation in source code</returns>
+  public string[] getArrayOfVarsInitAndOperations(string[] src) {
     ecx = 0;
     root = (CompilationUnitSyntax)tree.GetRoot();
     var declareVarsExpr = root.DescendantNodes().OfType<VariableDeclarationSyntax>();
     var assignmentVarsExpr = root.DescendantNodes().OfType<AssignmentExpressionSyntax>();
+    
     foreach (var expr in declareVarsExpr) {
       if (expr.Variables.Last().Initializer == null) continue;
          src[ecx] = expr.Variables.Last().Initializer.Value.ToString();
@@ -129,6 +180,7 @@ class APIAnalyze : IAnalyze {
    }
   return (src);
   }
+
   /// <summary>
   /// Get all entry point parameters
   /// </summary>

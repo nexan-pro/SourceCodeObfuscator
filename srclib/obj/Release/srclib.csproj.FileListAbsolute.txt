@@ -1,1 +1,6 @@
+E:\Project vs\SRCFU5C4T0R\srclib\bin\Release\srclib.exe.config
+E:\Project vs\SRCFU5C4T0R\srclib\bin\Release\srclib.exe
+E:\Project vs\SRCFU5C4T0R\srclib\bin\Release\srclib.pdb
+E:\Project vs\SRCFU5C4T0R\srclib\obj\Release\srclib.exe
+E:\Project vs\SRCFU5C4T0R\srclib\obj\Release\srclib.pdb
 E:\Project vs\SRCFU5C4T0R\srclib\obj\Release\srclib.csprojResolveAssemblyReference.cache

@@ -7,9 +7,9 @@ using SRCFU5C4T0R.Core.API;
 using SRCFU5C4T0R.Obfuscation;
 
 namespace SRCFU5C4T0R {
- class Example {
-  static void Main(string[] args) {
-   const string src = @"
+  class Example {
+    static void Main(string[] args) {
+      const string src = @"
    using System;
    using System.Collections.Generic;
    using System.Linq;
@@ -42,14 +42,14 @@ namespace SRCFU5C4T0R {
     }
    }
    ";
-    APIAnalyze obj = new APIAnalyze();
-    obj.LoadCode(src);
-    string[] resultOfOurMethod = new string[0x1337];
-    obj.getArrayOfVariableExpressions(resultOfOurMethod);
-    foreach(string word in resultOfOurMethod) {
-      if(word == null) break;
-      Console.WriteLine(word);
-   }
+      APIAnalyze obj = new APIAnalyze();
+      obj.LoadCode(src);
+      string[] resultOfOurMethod = new string[0x1337];
+      obj.getArrayOfVarsInitAndOperations(resultOfOurMethod);
+      foreach(string word in resultOfOurMethod) {
+        if(word == null) break;
+        Console.WriteLine(word);
+        }
+      }
+    }
   }
- }
-}
