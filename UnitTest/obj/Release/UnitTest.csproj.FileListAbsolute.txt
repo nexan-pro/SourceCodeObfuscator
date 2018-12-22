@@ -1,12 +1,10 @@
 E:\Project vs\SRCFU5C4T0R\UnitTest\obj\Release\UnitTest.csprojResolveAssemblyReference.cache
 E:\Project vs\SRCFU5C4T0R\UnitTest\bin\Release\UnitTest.dll
 E:\Project vs\SRCFU5C4T0R\UnitTest\bin\Release\UnitTest.pdb
-E:\Project vs\SRCFU5C4T0R\UnitTest\bin\Release\srclib.exe
 E:\Project vs\SRCFU5C4T0R\UnitTest\bin\Release\srclib.pdb
 E:\Project vs\SRCFU5C4T0R\UnitTest\obj\Release\UnitTest.dll
 E:\Project vs\SRCFU5C4T0R\UnitTest\obj\Release\UnitTest.pdb
 E:\Project vs\SRCFU5C4T0R\UnitTest\bin\Release\Microsoft.CodeAnalysis.dll
-E:\Project vs\SRCFU5C4T0R\UnitTest\bin\Release\SRCFU5C4T0R.exe
 E:\Project vs\SRCFU5C4T0R\UnitTest\bin\Release\Microsoft.CodeAnalysis.Workspaces.dll
 E:\Project vs\SRCFU5C4T0R\UnitTest\bin\Release\Microsoft.CodeAnalysis.CSharp.dll
 E:\Project vs\SRCFU5C4T0R\UnitTest\bin\Release\Microsoft.CodeAnalysis.Workspaces.Desktop.dll
@@ -40,3 +38,5 @@ E:\Project vs\SRCFU5C4T0R\UnitTest\bin\Release\System.Collections.Immutable.xml
 E:\Project vs\SRCFU5C4T0R\UnitTest\bin\Release\UnitTest.dll.config
 E:\Project vs\SRCFU5C4T0R\UnitTest\bin\Release\System.Reflection.Metadata.dll
 E:\Project vs\SRCFU5C4T0R\UnitTest\bin\Release\System.Reflection.Metadata.xml
+E:\Project vs\SRCFU5C4T0R\UnitTest\bin\Release\SRCFU5C4T0R.dll
+E:\Project vs\SRCFU5C4T0R\UnitTest\bin\Release\srclib.dll

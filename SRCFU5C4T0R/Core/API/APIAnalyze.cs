@@ -9,16 +9,12 @@ using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Microsoft.CodeAnalysis.MSBuild;
 using System.Runtime.CompilerServices;
 
-
-[assembly:InternalsVisibleTo("UnitTest")]
-
 namespace SRCFU5C4T0R.Core.API {
 internal class APIAnalyze : IAnalyze {
   public SyntaxTree tree;
   public CompilationUnitSyntax root;
   static public ProjectId projId = ProjectId.CreateNewId();
   //TODO: UI
-  static public string path = @"E:\Project vs\ConsoleApp_CSharp\ConsoleApp_CSharp\ConsoleApp_CSharp.csproj"; // !< path to project
   int ecx = 0; //HACK: 
 
   public Solution CreateSolution(string projName) {

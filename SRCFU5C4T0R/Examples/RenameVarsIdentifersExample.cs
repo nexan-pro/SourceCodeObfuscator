@@ -9,10 +9,10 @@ using SRCFU5C4T0R.Obfuscation;
 
 namespace SRCFU5C4T0R.Examples {
 class RenameVarsIdentifersExample {
-  static void Main(string[] args) {
+  static void main(string[] args) {
     APIAnalyze api = new APIAnalyze();
     var solution = api.CreateSolution("RenameVarsIdentifiers");
-    RenameVarsIdentifiers obj = new RenameVarsIdentifiers();
+    VarsIdentifiers obj = new VarsIdentifiers();
     solution = obj.renameVarsIdentifier(solution);
 
     var documents = solution.Projects.SelectMany(x => x.Documents).Select(x => x.Id).ToList();

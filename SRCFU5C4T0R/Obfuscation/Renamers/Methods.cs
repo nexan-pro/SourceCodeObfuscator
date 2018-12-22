@@ -25,7 +25,7 @@ class Methods {
     var projId = APIAnalyze.projId;
 
     MSBuildWorkspace wspLoading = MSBuildWorkspace.Create();
-    var prjLoading = wspLoading.OpenProjectAsync(APIAnalyze.path).Result;
+    var prjLoading = wspLoading.OpenProjectAsync(Config.pathToOriginal).Result;
     Solution slnLoading = wspLoading.CurrentSolution;
     foreach(var prjId in slnLoading.GetProjectDependencyGraph().GetTopologicallySortedProjects()) {
       var prj = slnLoading.GetProject(prjId);
@@ -34,8 +34,8 @@ class Methods {
         solution = solution.AddDocument(DocumentId.CreateNewId(projId),doc.Name,doc.GetTextAsync().Result);
       }
 
-      var documents = solution.Projects.SelectMany(x => x.Documents).Select(x => x.Id).ToList();
-
+    var documents = solution.Projects.SelectMany(x => x.Documents).Select(x => x.Id).ToList();
+    Console.WriteLine("-------------------------------------------------------------------------------------");
     foreach(var documentId in documents) {
       List<MethodDeclarationSyntax> methods;
       int i;
@@ -57,6 +57,7 @@ class Methods {
         }
       } while(i < methods.Count);
       }
+      Console.WriteLine("-------------------------------------------------------------------------------------");
       return solution;
   }
  }

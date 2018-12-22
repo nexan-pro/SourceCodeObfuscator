@@ -1,7 +1,7 @@
-e:\project vs\SRCFU5C4T0R\SRCFU5C4T0R\bin\Release\SRCFU5C4T0R.exe.config
 E:\Project vs\SRCFU5C4T0R\SRCFU5C4T0R\bin\Release\x86\e_sqlite3.dll
 E:\Project vs\SRCFU5C4T0R\SRCFU5C4T0R\bin\Release\x64\e_sqlite3.dll
-E:\Project vs\SRCFU5C4T0R\SRCFU5C4T0R\bin\Release\SRCFU5C4T0R.exe
+E:\Project vs\SRCFU5C4T0R\SRCFU5C4T0R\bin\Release\SRCFU5C4T0R.dll.config
+E:\Project vs\SRCFU5C4T0R\SRCFU5C4T0R\bin\Release\SRCFU5C4T0R.dll
 E:\Project vs\SRCFU5C4T0R\SRCFU5C4T0R\bin\Release\SRCFU5C4T0R.pdb
 E:\Project vs\SRCFU5C4T0R\SRCFU5C4T0R\bin\Release\Microsoft.CodeAnalysis.CSharp.dll
 E:\Project vs\SRCFU5C4T0R\SRCFU5C4T0R\bin\Release\Microsoft.CodeAnalysis.CSharp.Workspaces.dll
@@ -40,6 +40,11 @@ E:\Project vs\SRCFU5C4T0R\SRCFU5C4T0R\bin\Release\System.Xml.ReaderWriter.dll
 E:\Project vs\SRCFU5C4T0R\SRCFU5C4T0R\bin\Release\System.Xml.XmlDocument.dll
 E:\Project vs\SRCFU5C4T0R\SRCFU5C4T0R\bin\Release\System.Xml.XPath.dll
 E:\Project vs\SRCFU5C4T0R\SRCFU5C4T0R\bin\Release\System.Xml.XPath.XDocument.dll
+E:\Project vs\SRCFU5C4T0R\SRCFU5C4T0R\bin\Release\Microsoft.Build.dll
+E:\Project vs\SRCFU5C4T0R\SRCFU5C4T0R\bin\Release\Microsoft.Build.Framework.dll
+E:\Project vs\SRCFU5C4T0R\SRCFU5C4T0R\bin\Release\Microsoft.Build.Tasks.Core.dll
+E:\Project vs\SRCFU5C4T0R\SRCFU5C4T0R\bin\Release\Microsoft.Build.Engine.dll
+E:\Project vs\SRCFU5C4T0R\SRCFU5C4T0R\bin\Release\Microsoft.Build.Utilities.Core.dll
 E:\Project vs\SRCFU5C4T0R\SRCFU5C4T0R\bin\Release\Microsoft.CodeAnalysis.xml
 E:\Project vs\SRCFU5C4T0R\SRCFU5C4T0R\bin\Release\Microsoft.CodeAnalysis.CSharp.xml
 E:\Project vs\SRCFU5C4T0R\SRCFU5C4T0R\bin\Release\Microsoft.CodeAnalysis.CSharp.Workspaces.xml
@@ -50,11 +55,5 @@ E:\Project vs\SRCFU5C4T0R\SRCFU5C4T0R\bin\Release\Microsoft.CodeAnalysis.Workspa
 E:\Project vs\SRCFU5C4T0R\SRCFU5C4T0R\bin\Release\System.Collections.Immutable.xml
 E:\Project vs\SRCFU5C4T0R\SRCFU5C4T0R\bin\Release\System.Reflection.Metadata.xml
 E:\Project vs\SRCFU5C4T0R\SRCFU5C4T0R\bin\Release\System.Threading.Tasks.Extensions.xml
-E:\Project vs\SRCFU5C4T0R\SRCFU5C4T0R\obj\Release\SRCFU5C4T0R.csprojResolveAssemblyReference.cache
-E:\Project vs\SRCFU5C4T0R\SRCFU5C4T0R\obj\Release\SRCFU5C4T0R.exe
+E:\Project vs\SRCFU5C4T0R\SRCFU5C4T0R\obj\Release\SRCFU5C4T0R.dll
 E:\Project vs\SRCFU5C4T0R\SRCFU5C4T0R\obj\Release\SRCFU5C4T0R.pdb
-E:\Project vs\SRCFU5C4T0R\SRCFU5C4T0R\bin\Release\Microsoft.Build.dll
-E:\Project vs\SRCFU5C4T0R\SRCFU5C4T0R\bin\Release\Microsoft.Build.Framework.dll
-E:\Project vs\SRCFU5C4T0R\SRCFU5C4T0R\bin\Release\Microsoft.Build.Tasks.Core.dll
-E:\Project vs\SRCFU5C4T0R\SRCFU5C4T0R\bin\Release\Microsoft.Build.Engine.dll
-E:\Project vs\SRCFU5C4T0R\SRCFU5C4T0R\bin\Release\Microsoft.Build.Utilities.Core.dll

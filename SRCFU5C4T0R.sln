@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "srclib", "srclib\srclib.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTest", "UnitTest\UnitTest.csproj", "{D924225C-A593-4C4D-9171-C261169EADCF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SRCFU5C4T0R.CLI", "SRCFU5C4T0R.CLI\SRCFU5C4T0R.CLI.csproj", "{D22D53E9-F1AC-43EF-A4CC-FCAEDF1D425F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{D924225C-A593-4C4D-9171-C261169EADCF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D924225C-A593-4C4D-9171-C261169EADCF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D924225C-A593-4C4D-9171-C261169EADCF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D22D53E9-F1AC-43EF-A4CC-FCAEDF1D425F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D22D53E9-F1AC-43EF-A4CC-FCAEDF1D425F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D22D53E9-F1AC-43EF-A4CC-FCAEDF1D425F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D22D53E9-F1AC-43EF-A4CC-FCAEDF1D425F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

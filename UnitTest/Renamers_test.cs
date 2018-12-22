@@ -14,16 +14,21 @@ namespace UnitTest {
 public class Renamers_test {
   [TestMethod]
   public void renamers() {
+    Config.pathToOriginal = @"E:\Project vs\ConsoleApp_CSharp\ConsoleApp_CSharp\ConsoleApp_CSharp.csproj";
+    Config.pathToObfuscated = @"E:\Project vs\ConsoleApp_CSharp\ConsoleApp_CSharp\bin\Debug\rez.txt";
+
     APIAnalyze api = new APIAnalyze();
     Methods obj = new Methods();
     Classes obj_classes = new Classes();
-    RenameVarsIdentifiers obj_vars = new RenameVarsIdentifiers();
+    VarsIdentifiers obj_vars = new VarsIdentifiers();
     Namespaces obj_namespaces = new Namespaces();
+    MethodParams obj_methodParams = new MethodParams();
     var solution = api.CreateSolution("qwerty");
     solution = obj.renameMethods(solution);
     solution = obj_vars.renameVarsIdentifier(solution);
     solution = obj_classes.renameClasses(solution);
     solution = obj_namespaces.renameNamespaces(solution);
+    solution = obj_methodParams.renameParams(solution);
     int i = 0;
     var documents = solution.Projects.SelectMany(x => x.Documents).Select(x => x.Id).ToList();
     string[] src = new string[0x1337];
@@ -38,17 +43,15 @@ public class Renamers_test {
     ++i;
     //}
 
-    string path = @"E:\Project vs\ConsoleApp_CSharp\ConsoleApp_CSharp\bin\Debug\rez.txt";
-    File.WriteAllText(path, src[0]);
+    File.WriteAllText(Config.pathToObfuscated, src[0]);
 
     //assert
-    Assert.AreEqual(true, isCheck(path));
+    Assert.AreEqual(true, isCheck(Config.pathToObfuscated));
   }
   bool isCheck(string path) {
     byte[] content = File.ReadAllBytes(path);
-    if ((content[0] == 0x00) || (!File.Exists(path))) {
+    if ((content[0] == 0x00) || (!File.Exists(path)))
       return false;
-    }
     return true;
   }
  }

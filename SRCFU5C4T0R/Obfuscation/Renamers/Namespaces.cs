@@ -24,7 +24,7 @@ class Namespaces {
     var projId = APIAnalyze.projId;
 
     MSBuildWorkspace wspLoading = MSBuildWorkspace.Create();
-    var prjLoading = wspLoading.OpenProjectAsync(APIAnalyze.path).Result;
+    var prjLoading = wspLoading.OpenProjectAsync(Config.pathToOriginal).Result;
     Solution slnLoading = wspLoading.CurrentSolution;
     foreach(var prjId in slnLoading.GetProjectDependencyGraph().GetTopologicallySortedProjects()) {
       var prj = slnLoading.GetProject(prjId);
@@ -35,29 +35,30 @@ class Namespaces {
 
       var documents = solution.Projects.SelectMany(x => x.Documents).Select(x => x.Id).ToList();
 
-    foreach(var documentId in documents) {
-      List<NamespaceDeclarationSyntax> methods;
+      Console.WriteLine("-------------------------------------------------------------------------------------");
+      foreach(var documentId in documents) {
+        List<NamespaceDeclarationSyntax> methods;
      
-      int i;
-      do {
-        var doc = solution.GetDocument(documentId);
-        var model = doc.GetSemanticModelAsync().Result;
-        var syntax = doc.GetSyntaxRootAsync().Result;
-        methods = syntax.DescendantNodes().OfType<NamespaceDeclarationSyntax>().Where(x => !x.Name.ToFullString().StartsWith("__0x")).ToList(); // !<!~!
-        Console.WriteLine("namespace: " + methods.Count);
-        for(i = 0; i < methods.Count; ++i) {
-          foreach(var mth in methods) {
-            var symbol = model.GetDeclaredSymbol(mth);
-            var newName = "__0x" + Utils.String.to_Tiny(Utils.String.to_SHA1(mth.ToString()));
-            Console.WriteLine("Renaming namespace: " + mth + " to " + newName + $" {mth.Kind()}");
-            solution = Renamer.RenameSymbolAsync(solution, symbol, newName, null).Result;
+        int i;
+        do {
+          var doc = solution.GetDocument(documentId);
+          var model = doc.GetSemanticModelAsync().Result;
+          var syntax = doc.GetSyntaxRootAsync().Result;
+          methods = syntax.DescendantNodes().OfType<NamespaceDeclarationSyntax>().Where(x => !x.Name.ToFullString().StartsWith("__0x")).ToList(); // !<!~!
+          for(i = 0; i < methods.Count; ++i) {
+            foreach(var mth in methods) {
+              var symbol = model.GetDeclaredSymbol(mth);
+              var newName = "__0x" + Utils.String.to_Tiny(Utils.String.to_SHA1(mth.ToString()));
+              Console.WriteLine("Renaming namespace: " + mth + " to " + newName + $" {mth.Kind()}");
+              solution = Renamer.RenameSymbolAsync(solution, symbol, newName, null).Result;
+              break;
+            }
             break;
           }
-          break;
+        } while(i < methods.Count);
         }
-      } while(i < methods.Count);
-      }
-    return solution;
-  }
-  }
+      Console.WriteLine("-------------------------------------------------------------------------------------");
+      return solution;
+   }
+ }
 }
