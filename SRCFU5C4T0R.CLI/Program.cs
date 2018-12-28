@@ -23,6 +23,7 @@ class Program {
         Config.isEncryptStrings = true;
       }
     }
+    
     for (uint i = 1; i < args.Length - 1; ++i) {
       if (args[i] == "--rv")
         Config.isRenameVars = true;
@@ -36,12 +37,12 @@ class Program {
     Execute start = new Execute();
     start.process();
     Console.ResetColor();
-    }
+      }
     catch {
       Console.ForegroundColor = ConsoleColor.Red;
       Console.Write(
 @"
-Template: SRCFU5C4T0R [input project] [mode or options] [output file]
+Template: SRCFU5C4T0R [input project] [mode or options]
 ------------------------------------------------------------------------------
 =========================== Modes ============================================
 --lite - this mode contain all renamers @see...
@@ -57,6 +58,6 @@ Template: SRCFU5C4T0R [input project] [mode or options] [output file]
       );
       Console.ResetColor();
     }
-   }
+  }
   }
 }

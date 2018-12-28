@@ -41,3 +41,5 @@ E:\Project vs\SRCFU5C4T0R\SRCFU5C4T0R.CLI\obj\Release\SRCFU5C4T0R.CLI.exe
 E:\Project vs\SRCFU5C4T0R\SRCFU5C4T0R.CLI\obj\Release\SRCFU5C4T0R.CLI.pdb
 E:\Project vs\SRCFU5C4T0R\SRCFU5C4T0R.CLI\bin\Release\x86\e_sqlite3.dll
 E:\Project vs\SRCFU5C4T0R\SRCFU5C4T0R.CLI\bin\Release\x64\e_sqlite3.dll
+E:\Project vs\SRCFU5C4T0R\SRCFU5C4T0R.CLI\bin\Release\srclib.dll
+E:\Project vs\SRCFU5C4T0R\SRCFU5C4T0R.CLI\bin\Release\srclib.pdb

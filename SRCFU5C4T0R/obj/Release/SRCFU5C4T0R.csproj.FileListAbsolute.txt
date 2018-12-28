@@ -57,3 +57,6 @@ E:\Project vs\SRCFU5C4T0R\SRCFU5C4T0R\bin\Release\System.Reflection.Metadata.xml
 E:\Project vs\SRCFU5C4T0R\SRCFU5C4T0R\bin\Release\System.Threading.Tasks.Extensions.xml
 E:\Project vs\SRCFU5C4T0R\SRCFU5C4T0R\obj\Release\SRCFU5C4T0R.dll
 E:\Project vs\SRCFU5C4T0R\SRCFU5C4T0R\obj\Release\SRCFU5C4T0R.pdb
+E:\Project vs\SRCFU5C4T0R\SRCFU5C4T0R\obj\Release\SRCFU5C4T0R.csprojResolveAssemblyReference.cache
+E:\Project vs\SRCFU5C4T0R\SRCFU5C4T0R\bin\Release\srclib.dll
+E:\Project vs\SRCFU5C4T0R\SRCFU5C4T0R\bin\Release\srclib.pdb
