@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <diagram program="umlet" version="14.3.0">
-  <zoom_level>4</zoom_level>
+  <zoom_level>10</zoom_level>
   <element>
     <id>UMLActor</id>
     <coordinates>
-      <x>276</x>
-      <y>344</y>
-      <w>24</w>
-      <h>44</h>
+      <x>0</x>
+      <y>540</y>
+      <w>60</w>
+      <h>110</h>
     </coordinates>
     <panel_attributes>Actor</panel_attributes>
     <additional_attributes/>
@@ -15,10 +15,10 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>400</x>
-      <y>360</y>
-      <w>40</w>
-      <h>12</h>
+      <x>390</x>
+      <y>580</y>
+      <w>100</w>
+      <h>30</h>
     </coordinates>
     <panel_attributes>InterfaceView</panel_attributes>
     <additional_attributes/>
@@ -26,10 +26,10 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>468</x>
-      <y>360</y>
-      <w>56</w>
-      <h>12</h>
+      <x>610</x>
+      <y>580</y>
+      <w>140</w>
+      <h>30</h>
     </coordinates>
     <panel_attributes>ObfuscatorController</panel_attributes>
     <additional_attributes/>
@@ -37,10 +37,10 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>576</x>
-      <y>360</y>
-      <w>52</w>
-      <h>12</h>
+      <x>920</x>
+      <y>580</y>
+      <w>130</w>
+      <h>30</h>
     </coordinates>
     <panel_attributes>ModelObfuscator</panel_attributes>
     <additional_attributes/>
@@ -48,10 +48,10 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>416</x>
-      <y>368</y>
-      <w>12</w>
-      <h>200</h>
+      <x>430</x>
+      <y>600</y>
+      <w>30</w>
+      <h>500</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
     <additional_attributes>10.0;480.0;10.0;10.0</additional_attributes>
@@ -59,10 +59,10 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>492</x>
-      <y>368</y>
-      <w>12</w>
-      <h>200</h>
+      <x>670</x>
+      <y>600</y>
+      <w>30</w>
+      <h>500</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
     <additional_attributes>10.0;480.0;10.0;10.0</additional_attributes>
@@ -70,10 +70,10 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>596</x>
-      <y>368</y>
-      <w>12</w>
-      <h>204</h>
+      <x>970</x>
+      <y>600</y>
+      <w>30</w>
+      <h>510</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
     <additional_attributes>10.0;490.0;10.0;10.0</additional_attributes>
@@ -81,10 +81,10 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>416</x>
-      <y>388</y>
-      <w>12</w>
-      <h>28</h>
+      <x>430</x>
+      <y>650</y>
+      <w>30</w>
+      <h>70</h>
     </coordinates>
     <panel_attributes/>
     <additional_attributes/>
@@ -92,10 +92,10 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>284</x>
-      <y>368</y>
-      <w>12</w>
-      <h>200</h>
+      <x>20</x>
+      <y>600</y>
+      <w>30</w>
+      <h>500</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
     <additional_attributes>10.0;480.0;10.0;10.0</additional_attributes>
@@ -103,10 +103,10 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>284</x>
-      <y>384</y>
-      <w>12</w>
-      <h>32</h>
+      <x>20</x>
+      <y>640</y>
+      <w>30</w>
+      <h>80</h>
     </coordinates>
     <panel_attributes/>
     <additional_attributes/>
@@ -114,42 +114,40 @@
   <element>
     <type>com.baselet.element.old.allinone.SequenceDiagram</type>
     <coordinates>
-      <x>360</x>
-      <y>172</y>
-      <w>592</w>
-      <h>104</h>
+      <x>290</x>
+      <y>110</y>
+      <w>1480</w>
+      <h>260</h>
     </coordinates>
     <panel_attributes>title: Obfuscation
 _Actor~id0_|_InterfaceView~id1_|_ObfuscatorController~id2_|_ModelObfuscator~id3_
-id0-&gt;&gt;id1:id0,id1:Отправка исходного кода и выбор сложности обфускации
-id1-&gt;&gt;id2:id2,id1:LoadProject
-id2-&gt;&gt;id3:id3,id2:Вызов функции обфускации в зависимости от выбранной опции.
-id3-&gt;&gt;id1:id1,id3:Обновление(сохранение/перезапись) документов проекта
-id1-&gt;&gt;id0:id0,id1:Вывод ифнормации на экран
-
+id0-&gt;&gt;id1:id0,id1:Path to project and options or mode for obfuscation
+id1-&gt;&gt;id2:id2,id1:Load project and set options
+id2-&gt;&gt;id3:id3,id2:Call obfscation method depending on the selected options or mode
+id3-&gt;&gt;id1:id1,id3:Obfuscation information (Log)
+id1-&gt;&gt;id0:id0,id1:Saving obfuscated documents
 </panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>292</x>
-      <y>384</y>
-      <w>132</w>
-      <h>20</h>
+      <x>40</x>
+      <y>640</y>
+      <w>410</w>
+      <h>40</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-
-Отправка исходного кода
-и выбор сложности обфускации</panel_attributes>
-    <additional_attributes>310.0;20.0;10.0;20.0</additional_attributes>
+Path to project and options or mode for obfuscation</panel_attributes>
+    <additional_attributes>390.0;20.0;10.0;20.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>492</x>
-      <y>392</y>
-      <w>12</w>
-      <h>32</h>
+      <x>670</x>
+      <y>660</y>
+      <w>30</w>
+      <h>80</h>
     </coordinates>
     <panel_attributes/>
     <additional_attributes/>
@@ -157,36 +155,35 @@ id1-&gt;&gt;id0:id0,id1:Вывод ифнормации на экран
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>500</x>
-      <y>408</y>
-      <w>104</w>
-      <h>24</h>
+      <x>690</x>
+      <y>700</y>
+      <w>300</w>
+      <h>50</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-
-Вызов функции обфускации 
-в зависимости от 
-выбранной опции</panel_attributes>
-    <additional_attributes>240.0;20.0;10.0;20.0</additional_attributes>
+Call obfscation method depending 
+on the selected options or mode</panel_attributes>
+    <additional_attributes>280.0;20.0;10.0;20.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>424</x>
-      <y>388</y>
-      <w>76</w>
-      <h>16</h>
+      <x>450</x>
+      <y>650</y>
+      <w>240</w>
+      <h>40</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-
-LoadProject</panel_attributes>
-    <additional_attributes>170.0;20.0;10.0;20.0</additional_attributes>
+Load project and set options</panel_attributes>
+    <additional_attributes>220.0;20.0;10.0;20.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>596</x>
-      <y>408</y>
-      <w>12</w>
-      <h>64</h>
+      <x>970</x>
+      <y>700</y>
+      <w>30</w>
+      <h>160</h>
     </coordinates>
     <panel_attributes/>
     <additional_attributes/>
@@ -194,22 +191,22 @@ LoadProject</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>424</x>
-      <y>452</y>
-      <w>180</w>
-      <h>16</h>
+      <x>450</x>
+      <y>810</y>
+      <w>540</w>
+      <h>40</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-
-Отправка обфусцированного кода</panel_attributes>
-    <additional_attributes>10.0;20.0;430.0;20.0</additional_attributes>
+Obfuscation information (Log)</panel_attributes>
+    <additional_attributes>10.0;20.0;520.0;20.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>416</x>
-      <y>452</y>
-      <w>12</w>
-      <h>28</h>
+      <x>430</x>
+      <y>810</y>
+      <w>30</w>
+      <h>70</h>
     </coordinates>
     <panel_attributes/>
     <additional_attributes/>
@@ -217,10 +214,10 @@ LoadProject</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>284</x>
-      <y>452</y>
-      <w>12</w>
-      <h>28</h>
+      <x>20</x>
+      <y>810</y>
+      <w>30</w>
+      <h>70</h>
     </coordinates>
     <panel_attributes/>
     <additional_attributes/>
@@ -228,14 +225,13 @@ LoadProject</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>292</x>
-      <y>452</y>
-      <w>132</w>
-      <h>20</h>
+      <x>40</x>
+      <y>810</y>
+      <w>410</w>
+      <h>40</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-
-Вывод ифнормации
-на экран</panel_attributes>
-    <additional_attributes>10.0;20.0;310.0;20.0</additional_attributes>
+Saving obfuscated documents</panel_attributes>
+    <additional_attributes>10.0;20.0;390.0;20.0</additional_attributes>
   </element>
 </diagram>
