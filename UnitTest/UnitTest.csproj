@@ -149,7 +149,7 @@
     <Compile Include="CallableMethods_test.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\SRCFU5C4T0R\SRCFU5C4T0R.Core.csproj">
+    <ProjectReference Include="..\SRCFU5C4T0R.Core\SRCFU5C4T0R.Core.csproj">
       <Project>{2cb4c9d0-f827-45d7-80d3-9a1ac9c8fd2e}</Project>
       <Name>SRCFU5C4T0R.Core</Name>
     </ProjectReference>

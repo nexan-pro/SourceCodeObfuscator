@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using SRCFU5C4T0R.Core.API;
+using SRCFU5C4T0R.Core.Kernel.API;
 
 namespace UnitTest {
 [TestClass]

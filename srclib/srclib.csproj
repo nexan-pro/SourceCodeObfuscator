@@ -119,7 +119,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Helpers\a1f95c1bb38e78c133085d3ed42d2b.cs" />
+    <Compile Include="Helpers\a1f95c1bb38e78c13308.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -1,9 +1,9 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using srclib.Helpers;
-using SRCFU5C4T0R.Obfuscation;
-using SRCFU5C4T0R.Obfuscation.Renamers;
-using SRCFU5C4T0R.Core.API;
+using SRCFU5C4T0R.Core.Obfuscation;
+using SRCFU5C4T0R.Core.Obfuscation.Renamers;
+using SRCFU5C4T0R.Core.Kernel.API;
 using System.IO;
 using System.Threading.Tasks;
 using System.Linq;
