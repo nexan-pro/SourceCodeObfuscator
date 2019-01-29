@@ -132,11 +132,12 @@ internal class APIAnalyze : IAnalyze {
   /// Write to array all methods which will be called
   /// </summary>
   /// <param name="src">Array which will be storing all callable methods</param>
+  /// <param name="pathToSolution">Path to your solution in which you want to get callable methods</param>
   /// <returns>String array which contains all callable methods in source code</returns>
-  public async Task<string[]> getCallableMethods(string[] src) {
+  public async Task<string[]> getCallableMethods(string[] src, string pathToSolution) {
    var workspace = MSBuildWorkspace.Create();
    int ecx = 0;
-   var solution = await workspace.OpenSolutionAsync(@"E:\Project vs\ConsoleApp_CSharp\ConsoleApp_CSharp.sln");
+   var solution = await workspace.OpenSolutionAsync(pathToSolution);
    var project = solution.Projects.Single();
    var compilation = await project.GetCompilationAsync();
 

@@ -23,14 +23,12 @@ public class Renamers_test {
     VarsIdentifiers obj_vars = new VarsIdentifiers();
     Namespaces obj_namespaces = new Namespaces();
     MethodParams obj_methodParams = new MethodParams();
-    EncryptStrings obj_encryptStrings = new EncryptStrings();
     var solution = api.CreateSolution("qwerty");
     solution = obj.renameMethods(solution);
     solution = obj_vars.renameVarsIdentifier(solution);
     solution = obj_classes.renameClasses(solution);
     solution = obj_namespaces.renameNamespaces(solution);
     solution = obj_methodParams.renameParams(solution);
-    solution = obj_encryptStrings.encryptStrings(solution);
     int i = 0;
     var documents = solution.Projects.SelectMany(x => x.Documents).Select(x => x.Id).ToList();
     string[] src = new string[0x1337];

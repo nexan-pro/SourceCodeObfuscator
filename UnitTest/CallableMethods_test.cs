@@ -10,7 +10,7 @@ public class CallableMethods_test {
   public void callableMethods() {
     APIAnalyze obj = new APIAnalyze();
     string[] resultOfOurMethod = new string[0x1337];
-    string[] rez = Task.Run(() => obj.getCallableMethods(resultOfOurMethod)).Result;
+    string[] rez = Task.Run(() => obj.getCallableMethods(resultOfOurMethod, @"<PATH TO YOUR SOLUTION>")).Result;
     foreach(string word in rez)
       Console.Write(word);
     Assert.AreNotEqual(null, rez[0]);
