@@ -9,7 +9,7 @@ static class Config {
   #region Keywords for options/modes
     public static readonly string KEY_LITE_MODE = "--lite";
     public static readonly string KEY_NORMAL_MODE = "--normal";
-    public static readonly string KEY_RENAME_VARS_OPT = "--pv";
+    public static readonly string KEY_RENAME_VARS_OPT = "--rv";
     public static readonly string KEY_RENAME_NAMESPACES_OPT = "--rn";
     public static readonly string KEY_RENAME_CLASSES_OPT = "--rc";
     public static readonly string KEY_RENAME_METHODS_OPT = "--rm";

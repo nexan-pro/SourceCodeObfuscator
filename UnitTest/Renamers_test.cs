@@ -40,7 +40,7 @@ public class Renamers_test {
       var model = document.GetSemanticModelAsync().Result;
       var syntax = document.GetSyntaxRootAsync().Result;
       src[i] += syntax.SyntaxTree;
-      if (i < documents.Count / 6) // because our solution has been modified 5 times (--rm, --rv, --rc, --rn, --rp) 
+      if (i < documents.Count / 5) // because our solution has been modified 5 times (--rm, --rv, --rc, --rn, --rp) 
         File.WriteAllText(Config.pathToObfuscated + document.Name, src[i]);
       Console.WriteLine("doc name is: " + document.Name);
       Console.WriteLine("Lines in doc: " + syntax.SyntaxTree.GetText().Lines.Count);

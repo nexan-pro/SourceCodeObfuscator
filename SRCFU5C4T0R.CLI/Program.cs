@@ -31,7 +31,7 @@ class Program {
         }
       }
     
-    for (uint i = 1; i < args.Length - 1; ++i) {
+    for (uint i = 1; i < args.Length; ++i) {
       if (args[i] == Config.KEY_RENAME_VARS_OPT)
         Config.isRenameVars = true;
       if (args[i] == Config.KEY_RENAME_NAMESPACES_OPT)
