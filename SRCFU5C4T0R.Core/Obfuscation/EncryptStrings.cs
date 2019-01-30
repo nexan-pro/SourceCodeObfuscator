@@ -55,7 +55,8 @@ class EncryptStrings {
             var stringKind = variable.Initializer.Value.Kind();
             
             if (stringKind == SyntaxKind.StringLiteralExpression) {
-                var newVariable = SyntaxFactory.ParseStatement($"string {variable.Identifier.ValueText} = a1f95c1bb38e78c13308.__0xᵉ7ᵉ371ᶠ3ᶠ8ᵃᵃ56895ᵉ9ᵃᵈ4790ᵃ53432ᶠ2ᵈᵇᶜᵃ362ᵈᵉᵃᵈᶜᵒᵈᵉᵈᵉᵃᵈᶜᵒᵈᵉᵈᵉᵃᵈᶜᵒᵈᵉᵈᵉᵃᵈᶜᵒᵈᵉᵈᵉᵃᵈᶜᵒᵈᵉᵈᵉᵃᵈᶜᵒᵈᵉᵈᵉᵃᵈᶜᵒᵈᵉᵈᵉᵃᵈᶜᵒᵈᵉ_(\"{a1f95c1bb38e78c13308.__0x3442496ᵇ96ᵈᵈ01591ᵃ8ᶜᵈ44ᵇ1ᵉᵉᶜ1368ᵃᵇ728ᵃᵇᵃᵈᵉᵃᵈᶜᵒᵈᵉᵈᵉᵃᵈᶜᵒᵈᵉᵈᵉᵃᵈᶜᵒᵈᵉᵈᵉᵃᵈᶜᵒᵈᵉᵈᵉᵃᵈᶜᵒᵈᵉᵈᵉᵃᵈᶜᵒᵈᵉᵈᵉᵃᵈᶜᵒᵈᵉᵈᵉᵃᵈᶜᵒᵈᵉ_(variable.Initializer.Value.ToString())}\");");
+              string formattedInitializer = Utils.String.delete_quotes(variable.Initializer.Value.ToString()); // delete quotes from Initializer e.g. "value" to value
+              var newVariable = SyntaxFactory.ParseStatement($"string {variable.Identifier.ValueText} = a1f95c1bb38e78c13308.__0xᵉ7ᵉ371ᶠ3ᶠ8ᵃᵃ56895ᵉ9ᵃᵈ4790ᵃ53432ᶠ2ᵈᵇᶜᵃ362ᵈᵉᵃᵈᶜᵒᵈᵉᵈᵉᵃᵈᶜᵒᵈᵉᵈᵉᵃᵈᶜᵒᵈᵉᵈᵉᵃᵈᶜᵒᵈᵉᵈᵉᵃᵈᶜᵒᵈᵉᵈᵉᵃᵈᶜᵒᵈᵉᵈᵉᵃᵈᶜᵒᵈᵉᵈᵉᵃᵈᶜᵒᵈᵉ_(\"{a1f95c1bb38e78c13308.__0x3442496ᵇ96ᵈᵈ01591ᵃ8ᶜᵈ44ᵇ1ᵉᵉᶜ1368ᵃᵇ728ᵃᵇᵃᵈᵉᵃᵈᶜᵒᵈᵉᵈᵉᵃᵈᶜᵒᵈᵉᵈᵉᵃᵈᶜᵒᵈᵉᵈᵉᵃᵈᶜᵒᵈᵉᵈᵉᵃᵈᶜᵒᵈᵉᵈᵉᵃᵈᶜᵒᵈᵉᵈᵉᵃᵈᶜᵒᵈᵉᵈᵉᵃᵈᶜᵒᵈᵉ_(formattedInitializer)}\");");
               newVariable.NormalizeWhitespace();
                 
               editor.ReplaceNode(variable, newVariable);

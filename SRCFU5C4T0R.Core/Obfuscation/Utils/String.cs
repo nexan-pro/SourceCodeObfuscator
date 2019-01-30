@@ -57,5 +57,20 @@ class String {
     }
     return tmp;
   }
+
+  public static string delete_quotes(string str) {
+    string tmp = str.Remove(0, 1);
+    tmp = tmp.Remove(tmp.Length - 1, 1);
+    int delete_chars = 0;
+    int src_size = tmp.Length;
+    char[] characters = tmp.ToCharArray();
+      for (int i = 0; i < src_size; ++i)
+        if (characters[i] == '\\' && i + 1 < src_size)
+          if (characters[i + 1] == '\"') {
+            tmp = tmp.Remove(i - delete_chars, 1);
+            delete_chars++;
+          }
+    return tmp;
+  }
 }
 }

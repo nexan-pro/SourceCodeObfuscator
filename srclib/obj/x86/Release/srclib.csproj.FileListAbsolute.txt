@@ -35,4 +35,3 @@ E:\Project vs\SRCFU5C4T0R\srclib\bin\x86\Release\System.Collections.Immutable.xm
 E:\Project vs\SRCFU5C4T0R\srclib\bin\x86\Release\System.Reflection.Metadata.xml
 E:\Project vs\SRCFU5C4T0R\srclib\obj\x86\Release\srclib.dll
 E:\Project vs\SRCFU5C4T0R\srclib\obj\x86\Release\srclib.pdb
-E:\Project vs\SRCFU5C4T0R\srclib\obj\x86\Release\srclib.csprojResolveAssemblyReference.cache
