@@ -7,9 +7,11 @@ using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Microsoft.CodeAnalysis.MSBuild;
-using System.Runtime.CompilerServices;
 
 namespace SRCFU5C4T0R.Core.Kernel.API {
+/// <summary>
+/// Class that implements the interface IAnalyze
+/// </summary>
 internal class APIAnalyze : IAnalyze {
   public SyntaxTree tree;
   public CompilationUnitSyntax root;
@@ -17,7 +19,12 @@ internal class APIAnalyze : IAnalyze {
   //TODO: UI
   int ecx = 0; //HACK: 
 
-  public Solution CreateSolution(string projName) {
+  /// <summary>
+  /// Implementation of method for create solution in workspace
+  /// </summary>
+  /// <param name="projName">Project name</param>
+  /// <returns>Created solution</returns>
+  public Solution createSolution(string projName) {
     MSBuildWorkspace workspace = MSBuildWorkspace.Create();
     //var projId = ProjectId.CreateNewId();
     var versionStamp = VersionStamp.Create();
@@ -30,7 +37,7 @@ internal class APIAnalyze : IAnalyze {
   /// </summary>
   /// <param name="src"></param>
   /// <returns>Loaded tree</returns>
-  public SyntaxTree LoadCode(string src) {
+  public SyntaxTree loadCode(string src) {
     tree = CSharpSyntaxTree.ParseText(src);
     return (tree);
   }
@@ -166,9 +173,9 @@ internal class APIAnalyze : IAnalyze {
     var declareVarsExpr = root.DescendantNodes().OfType<VariableDeclarationSyntax>();
     var assignmentVarsExpr = root.DescendantNodes().OfType<AssignmentExpressionSyntax>();
     
-    foreach (var expr in declareVarsExpr) {
-      if (expr.Variables.Last().Initializer == null) continue;
-         src[ecx] = expr.Variables.Last().Initializer.Value.ToString();
+    foreach (var vars in declareVarsExpr) {
+      if (vars.Variables.Last().Initializer == null) continue;
+         src[ecx] = vars.Variables.Last().Initializer.Value.ToString();
          ecx++;
       }
     foreach(var expr in assignmentVarsExpr) {

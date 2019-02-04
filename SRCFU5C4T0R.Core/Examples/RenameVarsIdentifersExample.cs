@@ -11,7 +11,7 @@ namespace SRCFU5C4T0R.Core.Examples {
 class RenameVarsIdentifersExample {
   static void main(string[] args) {
     APIAnalyze api = new APIAnalyze();
-    var solution = api.CreateSolution("RenameVarsIdentifiers");
+    var solution = api.createSolution("RenameVarsIdentifiers");
     VarsIdentifiers obj = new VarsIdentifiers();
     solution = obj.renameVarsIdentifier(solution);
 

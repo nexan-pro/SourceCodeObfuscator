@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using SRCFU5C4T0R.Core.Obfuscation;
+using SRCFU5C4T0R.Core.Kernel.API;
 
 namespace SRCFU5C4T0R.CLI {
 class Program {

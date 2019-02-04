@@ -1,0 +1,250 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>SRCFU5C4T0R.Core</name>
+    </assembly>
+    <members>
+        <member name="T:SRCFU5C4T0R.Core.Kernel.API.APIAnalyze">
+            <summary>
+            Class that implements the interface IAnalyze
+            </summary>
+        </member>
+        <member name="M:SRCFU5C4T0R.Core.Kernel.API.APIAnalyze.createSolution(System.String)">
+            <summary>
+            Implementation of method for create solution in workspace
+            </summary>
+            <param name="projName">Project name</param>
+            <returns>Created solution</returns>
+        </member>
+        <member name="M:SRCFU5C4T0R.Core.Kernel.API.APIAnalyze.loadCode(System.String)">
+            <summary>
+            Implementation of method for load C# code from string variable
+            </summary>
+            <param name="src"></param>
+            <returns>Loaded tree</returns>
+        </member>
+        <member name="M:SRCFU5C4T0R.Core.Kernel.API.APIAnalyze.printDeclareMethodsIdentifer">
+            <summary>
+            Print all names of methods in loaded source code
+            </summary>
+        </member>
+        <member name="M:SRCFU5C4T0R.Core.Kernel.API.APIAnalyze.printDeclareVariablesIdentifer">
+            <summary>
+            Print all names of variables in loaded source code
+            </summary>
+        </member>
+        <member name="M:SRCFU5C4T0R.Core.Kernel.API.APIAnalyze.getArrayOfDeclareMethods(System.String[])">
+            <summary>
+            Get 1-rank string array of methods (one method = one element of array)
+            </summary>
+            <param name="src">Input string array which will be modified</param>
+            <returns>Array of methods</returns>
+        </member>
+        <member name="M:SRCFU5C4T0R.Core.Kernel.API.APIAnalyze.getArrayOfDeclareMethodsIdentifer(System.String[])">
+            <summary>
+            Write all methods in 1-rank string array
+            </summary>
+            <param name="src">Input 1-rank string array</param>
+            <returns>1-rank string array with all name of methods</returns>
+        </member>
+        <member name="M:SRCFU5C4T0R.Core.Kernel.API.APIAnalyze.getArrayOfDeclareVariables(System.String[])">
+            <summary>
+            Method which write all name of variables in 1-rank string array
+            </summary>
+            <param name="src">Input 1-rank string array, which will be modified and store name of declare variables</param>
+            <returns>1-rank modified string array</returns>
+        </member>
+        <member name="M:SRCFU5C4T0R.Core.Kernel.API.APIAnalyze.getArrayOfDeclareVariablesIdentifer(System.String[])">
+            <summary>
+            Method which write all declare variables identificators in 1-rank string array
+            </summary>
+            <param name="src">Input 1-rank string array, which will be modified and store name of declare variables</param>
+            <returns>1-rank modified string array</returns>
+        </member>
+        <member name="M:SRCFU5C4T0R.Core.Kernel.API.APIAnalyze.printVarsInitAndOperations">
+            <summary>
+            Print all variables initializers and right hand side of operations in source code
+            </summary>
+        </member>
+        <member name="M:SRCFU5C4T0R.Core.Kernel.API.APIAnalyze.getCallableMethods(System.String[],System.String)">
+            <summary>
+            Write to array all methods which will be called
+            </summary>
+            <param name="src">Array which will be storing all callable methods</param>
+            <param name="pathToSolution">Path to your solution in which you want to get callable methods</param>
+            <returns>String array which contains all callable methods in source code</returns>
+        </member>
+        <member name="M:SRCFU5C4T0R.Core.Kernel.API.APIAnalyze.getArrayOfVarsInitAndOperations(System.String[])">
+            <summary>
+            Write to array all variables initializers and operations 
+            </summary>
+            <param name="src">Array which will be modified</param>
+            <returns>String array which contains all variables initializers and right hand side of operation in source code</returns>
+        </member>
+        <member name="M:SRCFU5C4T0R.Core.Kernel.API.APIAnalyze.getListOfParameters(System.String[])">
+            <summary>
+            Get all entry point parameters
+            </summary>
+            <param name="src">Array which you want to write parameters of entry point</param>
+            <returns>Modified string array</returns>
+        </member>
+        <member name="T:SRCFU5C4T0R.Core.Kernel.API.IAnalyze">
+            <summary>
+            Interface for load and analyze C# code
+            </summary>
+        </member>
+        <member name="M:SRCFU5C4T0R.Core.Kernel.API.IAnalyze.createSolution(System.String)">
+            <summary>
+            Create solution in workspace
+            </summary>
+            <param name="projName">Project name</param>
+            <returns>Created solution</returns>
+        </member>
+        <member name="M:SRCFU5C4T0R.Core.Kernel.API.IAnalyze.loadCode(System.String)">
+            <summary>
+            Method for load C# code from string variable
+            </summary>
+            <returns>Loaded SyntaxTree</returns>
+        </member>
+        <member name="M:SRCFU5C4T0R.Core.Kernel.API.IAnalyze.printDeclareMethodsIdentifer">
+            <summary>
+            Print all names of methods in loaded source code
+            </summary>
+        </member>
+        <member name="M:SRCFU5C4T0R.Core.Kernel.API.IAnalyze.printDeclareVariablesIdentifer">
+            <summary>
+            Print all name of declare variables in loaded sorce code
+            </summary>
+        </member>
+        <member name="M:SRCFU5C4T0R.Core.Kernel.API.IAnalyze.printVarsInitAndOperations">
+            <summary>
+            Print all variables expressions
+            </summary>
+        </member>
+        <member name="M:SRCFU5C4T0R.Core.Kernel.API.IAnalyze.getCallableMethods(System.String[],System.String)">
+            <summary>
+            Get all callable methods
+            <param name="src">Array which will be storing all callable methods</param>
+            <param name="pathToSolution">Path to your solution in which you want to get callable methods</param>
+            </summary>
+        </member>
+        <member name="M:SRCFU5C4T0R.Core.Kernel.API.IAnalyze.getArrayOfDeclareMethods(System.String[])">
+            <summary>
+            Get 1 rank string-array with name of declare methods
+            </summary>
+            <returns>1 rank string-array</returns>
+        </member>
+        <member name="M:SRCFU5C4T0R.Core.Kernel.API.IAnalyze.getArrayOfDeclareMethodsIdentifer(System.String[])">
+            <summary>
+            Method which write in your input array name of methods
+            </summary>
+            <param name="src">Input string array</param>
+            <returns>String array</returns>
+        </member>
+        <member name="M:SRCFU5C4T0R.Core.Kernel.API.IAnalyze.getArrayOfDeclareVariables(System.String[])">
+            <summary>
+            Write in your input array all names of declare variables
+            </summary>
+            <param name="src">Array which you want to write names of declare variables</param>
+            <returns>Modified string array</returns>
+        </member>
+        <member name="M:SRCFU5C4T0R.Core.Kernel.API.IAnalyze.getArrayOfDeclareVariablesIdentifer(System.String[])">
+            <summary>
+            Get all declare variables identificators
+            </summary>
+            <param name="src">Array which you want to write all identificators</param>
+            <returns>String array with identidicators</returns>
+        </member>
+        <member name="M:SRCFU5C4T0R.Core.Kernel.API.IAnalyze.getArrayOfVarsInitAndOperations(System.String[])">
+            <summary>
+            Get all variables expressions
+            </summary>
+            <param name="src">Array which you want to modifie</param>
+            <returns>Modified array</returns>
+        </member>
+        <member name="M:SRCFU5C4T0R.Core.Kernel.API.IAnalyze.getListOfParameters(System.String[])">
+            <summary>
+            Get all ecntry point parameters
+            </summary>
+            <param name="src">Array which you want to write parameters of entry point</param>
+            <returns>Modified string array</returns>
+        </member>
+        <member name="M:SRCFU5C4T0R.Core.Kernel.API.IAnalyze.getDeclareMethodPrototype(System.String[])">
+            <summary>
+            Get prototype of decalre method
+            </summary>
+            <param name="src">Input array for writing output</param>
+            <returns>1-rank string array</returns>
+        </member>
+        <member name="T:SRCFU5C4T0R.Core.Obfuscation.EncryptStrings">
+            <summary>
+            This class provide to encrypt string
+            </summary>
+        </member>
+        <member name="T:SRCFU5C4T0R.Core.Obfuscation.Mutation">
+            <summary>
+            This class provide to mutation expressions
+            </summary>
+        </member>
+        <member name="T:SRCFU5C4T0R.Core.Obfuscation.Renamers.Classes">
+            <summary>
+            Class of renaming classes identifiers
+            </summary>
+        </member>
+        <member name="M:SRCFU5C4T0R.Core.Obfuscation.Renamers.Classes.renameClasses(Microsoft.CodeAnalysis.Solution)">
+            <summary>
+            Renaming classes identifiers
+            </summary>
+            <param name="solution">Solution, which will be contained projects for rename classes identifiers</param>
+            <returns>Resulting solution</returns>
+        </member>
+        <member name="T:SRCFU5C4T0R.Core.Obfuscation.Renamers.MethodParams">
+            <summary>
+            Class of renaming method parameters identifiers
+            </summary>
+        </member>
+        <member name="M:SRCFU5C4T0R.Core.Obfuscation.Renamers.MethodParams.renameParams(Microsoft.CodeAnalysis.Solution)">
+            <summary>
+            Renaming method parameters identifiers
+            </summary>
+            <param name="solution">Solution, which will be contained projects for rename methods parameters identifiers</param>
+            <returns>Resulting solution</returns>
+        </member>
+        <member name="T:SRCFU5C4T0R.Core.Obfuscation.Renamers.Methods">
+            <summary>
+            Class of renaming methods identifiers
+            </summary>
+        </member>
+        <member name="M:SRCFU5C4T0R.Core.Obfuscation.Renamers.Methods.renameMethods(Microsoft.CodeAnalysis.Solution)">
+            <summary>
+            Renaming methods identifiers
+            </summary>
+            <param name="solution">Solution, which will be contained projects for rename methods identifiers</param>
+            <returns>Resulting solution</returns>
+        </member>
+        <member name="T:SRCFU5C4T0R.Core.Obfuscation.Renamers.Namespaces">
+            <summary>
+            Class of renaming namespaces
+            </summary>
+        </member>
+        <member name="M:SRCFU5C4T0R.Core.Obfuscation.Renamers.Namespaces.renameNamespaces(Microsoft.CodeAnalysis.Solution)">
+            <summary>
+            Renaming project namespaces
+            </summary>
+            <param name="solution">Solution, which will be contained projects for rename namespaces</param>
+            <returns>Resulting solution</returns>
+        </member>
+        <member name="T:SRCFU5C4T0R.Core.Obfuscation.Renamers.VarsIdentifiers">
+            <summary>
+            Class of renaming variables identifiers
+            </summary>
+        </member>
+        <member name="M:SRCFU5C4T0R.Core.Obfuscation.Renamers.VarsIdentifiers.renameVarsIdentifier(Microsoft.CodeAnalysis.Solution)">
+            <summary>
+            Renaming variables identifiers
+            </summary>
+            <param name="solution">Solution, which will be contained projects for rename variables</param>
+            <returns>Resulting solution</returns>
+        </member>
+    </members>
+</doc>

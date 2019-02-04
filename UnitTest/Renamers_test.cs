@@ -23,7 +23,7 @@ public class Renamers_test {
     VarsIdentifiers obj_vars = new VarsIdentifiers();
     Namespaces obj_namespaces = new Namespaces();
     MethodParams obj_methodParams = new MethodParams();
-    var solution = api.CreateSolution("qwerty");
+    var solution = api.createSolution("qwerty");
     solution = obj.renameMethods(solution);
     solution = obj_vars.renameVarsIdentifier(solution);
     solution = obj_classes.renameClasses(solution);
@@ -37,7 +37,6 @@ public class Renamers_test {
     Console.WriteLine("Count of docs in array: " + documents.Count);
     foreach(var documentId in documents) {
       var document = solution.GetDocument(documentId);
-      var model = document.GetSemanticModelAsync().Result;
       var syntax = document.GetSyntaxRootAsync().Result;
       src[i] += syntax.SyntaxTree;
       if (i < documents.Count / 5) // because our solution has been modified 5 times (--rm, --rv, --rc, --rn, --rp) 

@@ -122,3 +122,4 @@ E:\Project vs\SRCFU5C4T0R\SRCFU5C4T0R.Core\bin\x86\Release\System.Threading.Task
 E:\Project vs\SRCFU5C4T0R\SRCFU5C4T0R.Core\obj\x86\Release\SRCFU5C4T0R.Core.csprojResolveAssemblyReference.cache
 E:\Project vs\SRCFU5C4T0R\SRCFU5C4T0R.Core\obj\x86\Release\SRCFU5C4T0R.Core.dll
 E:\Project vs\SRCFU5C4T0R\SRCFU5C4T0R.Core\obj\x86\Release\SRCFU5C4T0R.Core.pdb
+E:\Project vs\SRCFU5C4T0R\SRCFU5C4T0R.Core\bin\x86\Release\SRCFU5C4T0R.Core.XML

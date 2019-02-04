@@ -46,7 +46,7 @@ class Example {
     }
     ";
     APIAnalyze obj = new APIAnalyze();
-    obj.LoadCode(src);
+    obj.loadCode(src);
     string[] resultOfOurMethod = new string[0x1337];
     obj.getArrayOfVarsInitAndOperations(resultOfOurMethod);
     foreach(string word in resultOfOurMethod) {

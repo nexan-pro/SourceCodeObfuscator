@@ -40,5 +40,6 @@ E:\Project vs\SRCFU5C4T0R\UnitTest\bin\x86\Release\System.Collections.Immutable.
 E:\Project vs\SRCFU5C4T0R\UnitTest\bin\x86\Release\System.Reflection.Metadata.xml
 E:\Project vs\SRCFU5C4T0R\UnitTest\obj\x86\Release\UnitTest.dll
 E:\Project vs\SRCFU5C4T0R\UnitTest\obj\x86\Release\UnitTest.pdb
+E:\Project vs\SRCFU5C4T0R\UnitTest\bin\x86\Release\SRCFU5C4T0R.Core.xml
 E:\Project vs\SRCFU5C4T0R\UnitTest\bin\x86\Release\x86\e_sqlite3.dll
 E:\Project vs\SRCFU5C4T0R\UnitTest\bin\x86\Release\x64\e_sqlite3.dll

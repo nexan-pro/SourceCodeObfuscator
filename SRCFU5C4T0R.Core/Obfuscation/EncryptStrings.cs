@@ -24,11 +24,10 @@ class EncryptStrings {
     MSBuildWorkspace wspLoading = MSBuildWorkspace.Create();
     var prjLoading = wspLoading.OpenProjectAsync(Config.pathToOriginal).Result;
     Solution slnLoading = wspLoading.CurrentSolution;
-     Solution newSolution = wspLoading.CurrentSolution;
     foreach(var prjId in slnLoading.GetProjectDependencyGraph().GetTopologicallySortedProjects()) {
       var prj = slnLoading.GetProject(prjId);
-    foreach(var doc in prj.Documents)
-      solution = solution.AddDocument(DocumentId.CreateNewId(projId), doc.Name, doc.GetTextAsync().Result);
+      foreach(var doc in prj.Documents)
+        solution = solution.AddDocument(DocumentId.CreateNewId(projId), doc.Name, doc.GetTextAsync().Result);
       }
 
     var documents = solution.Projects.SelectMany(x => x.Documents).Select(x => x.Id).ToList();

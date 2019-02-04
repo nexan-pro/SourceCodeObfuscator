@@ -12,17 +12,22 @@ using System.Threading.Tasks;
 
 namespace SRCFU5C4T0R.Core.Kernel.API {
   /// <summary>
-  /// Interface for load && analyze C# code
+  /// Interface for load and analyze C# code
   /// </summary>
-  public interface IAnalyze {
-    Solution CreateSolution(string projName);
+  interface IAnalyze {
+    /// <summary>
+    /// Create solution in workspace
+    /// </summary>
+    /// <param name="projName">Project name</param>
+    /// <returns>Created solution</returns>
+    Solution createSolution(string projName);
 
     /// <summary>
     /// Method for load C# code from string variable
     /// </summary>
     /// <returns>Loaded SyntaxTree</returns>
     //HACK: Load Code ;(
-    SyntaxTree LoadCode(string src); //TODO: add API with documents/solutions/workspace/MSBuild/Adhoc/
+    SyntaxTree loadCode(string src); //TODO: add API with documents/solutions/workspace/MSBuild/Adhoc/
 
     /// <summary>
     /// Print all names of methods in loaded source code

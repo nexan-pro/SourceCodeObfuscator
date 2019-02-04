@@ -144,6 +144,7 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="Mutation_test.cs" />
     <Compile Include="Renamers_test.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="CallableMethods_test.cs" />

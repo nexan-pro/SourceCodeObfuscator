@@ -13,8 +13,8 @@ namespace SRCFU5C4T0R.CLI {
 class Execute {
   public bool process() {
     int ecx = 0;
-    APIAnalyze api = new APIAnalyze();
-    var solution = api.CreateSolution("ObfuscatedProject");
+    IAnalyze api = new APIAnalyze();
+    var solution = api.createSolution("ObfuscatedProject");
     Config.pathToObfuscated = Directory.GetParent(Config.pathToOriginal).FullName + @"\";
     if (Config.isRenameClasses) {
       Classes obfClasses = new Classes();
