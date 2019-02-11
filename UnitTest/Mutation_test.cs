@@ -11,7 +11,7 @@ public class Mutation_test {
   public void confExpr() {
     Config.pathToOriginal = @"E:\Project vs\ConsoleApp_CSharp\ConsoleApp_CSharp\ConsoleApp_CSharp.csproj";
     APIAnalyze api = new APIAnalyze();
-    Mutation mut = new Mutation();
+    NumProtection mut = new NumProtection();
     var sln = api.createSolution("src_sln");
     sln = mut.confuseExpressions(sln);
     Console.WriteLine("Current documents in main sln contain: ");

@@ -240,7 +240,7 @@
     <Compile Include="Examples\RenameVarsIdentifersExample.cs" />
     <Compile Include="Obfuscation\Config.cs" />
     <Compile Include="Obfuscation\EncryptStrings.cs" />
-    <Compile Include="Obfuscation\Mutation.cs" />
+    <Compile Include="Obfuscation\NumProtection.cs" />
     <Compile Include="Obfuscation\Renamers\Classes.cs" />
     <Compile Include="Obfuscation\Renamers\MethodParams.cs" />
     <Compile Include="Obfuscation\Renamers\Methods.cs" />
