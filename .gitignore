@@ -1,2 +1,10 @@
 .vs
 packages
+SRCFU5C4T0R.CLI/bin
+SRCFU5C4T0R.CLI/obj
+SRCFU5C4T0R.Core/bin
+SRCFU5C4T0R.Core/obj
+UnitTest/bin
+UnitTest/obj
+srclib/bin
+srclib/obj
