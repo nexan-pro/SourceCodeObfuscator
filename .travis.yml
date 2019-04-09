@@ -1,0 +1,7 @@
+language: csharp
+solution: SRCFU5C4T0R.sln
+install:
+        - nuget install Microsoft.Net.Compilers -Version 1.3.2
+        - nuget install SQLitePCLRaw.lib.e_sqlite3.linux -Version 1.1.2
+script:
+        - ls -al
