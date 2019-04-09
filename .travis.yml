@@ -3,10 +3,16 @@ solution: SRCFU5C4T0R.sln
 install:
         - nuget install Microsoft.Net.Compilers -Version 1.3.2
         - nuget install SQLitePCLRaw.lib.e_sqlite3.linux -Version 1.1.2
-script:
+        - nuget install SQLitePCLRaw.lib.e_sqlite3.osx -Version 1.1.2
+        - nuget install SQLitePCLRaw.lib.e_sqlite3.v110_xp -Version 1.1.2
+        - nuget install SQLitePCLRaw.provider.e_sqlite3.net45 -Version 1.1.2
+before_script:
         - ls -al
         - mkdir packages && mv SQLitePCLRaw.lib.e_sqlite3.linux.1.1.2 packages/SQLitePCLRaw.lib.e_sqlite3.linux.1.1.2
+        - mv SQLitePCLRaw.lib.e_sqlite3.osx packages/SQLitePCLRaw.lib.e_sqlite3.osx 
+        - mv SQLitePCLRaw.lib.e_sqlite3.v110_xp packages/SQLitePCLRaw.lib.e_sqlite3.v110_xp
+        - mv SQLitePCLRaw.provider.e_sqlite3.net45 packages/SQLitePCLRaw.provider.e_sqlite3.net45   
         - echo after replace
         - ls -al
-        - xbuild SRCFU5C4T0R.sln
+
 
