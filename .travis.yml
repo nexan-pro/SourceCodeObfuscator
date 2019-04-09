@@ -5,3 +5,5 @@ install:
         - nuget install SQLitePCLRaw.lib.e_sqlite3.linux -Version 1.1.2
 script:
         - ls -al
+        - xbuild SRCFU5C4T0R.sln
+
