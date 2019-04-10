@@ -1,0 +1,20 @@
+version: BUILD{build}
+
+image: Visual Studio 2017
+shallow_clone: true
+
+configuration:
+- Debug
+- Release
+
+before_build:
+  - nuget restore
+
+build:
+  project: SRCFU5C4T0R.sln
+  parallel: true
+  verbosity: minimal
+
+artifacts:
+- path: Bin
+  name: binaries
