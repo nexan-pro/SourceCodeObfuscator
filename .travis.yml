@@ -9,9 +9,9 @@ install:
 before_script:
         - ls -al
         - mkdir packages && mv SQLitePCLRaw.lib.e_sqlite3.linux.1.1.2 packages/SQLitePCLRaw.lib.e_sqlite3.linux.1.1.2
-        - mv SQLitePCLRaw.lib.e_sqlite3.osx packages/SQLitePCLRaw.lib.e_sqlite3.osx 
-        - mv SQLitePCLRaw.lib.e_sqlite3.v110_xp packages/SQLitePCLRaw.lib.e_sqlite3.v110_xp
-        - mv SQLitePCLRaw.provider.e_sqlite3.net45 packages/SQLitePCLRaw.provider.e_sqlite3.net45   
+        - mv SQLitePCLRaw.lib.e_sqlite3.osx.1.1.2 packages/SQLitePCLRaw.lib.e_sqlite3.osx.1.1.2
+        - mv SQLitePCLRaw.lib.e_sqlite3.v110_xp.1.1.2 packages/SQLitePCLRaw.lib.e_sqlite3.v110_xp.1.1.2
+        - mv SQLitePCLRaw.provider.e_sqlite3.net45.1.1.2 packages/SQLitePCLRaw.provider.e_sqlite3.net45.1.1.2
         - echo after replace
         - ls -al
 
