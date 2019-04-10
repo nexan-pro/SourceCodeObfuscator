@@ -7,7 +7,6 @@ install:
         - nuget install SQLitePCLRaw.lib.e_sqlite3.v110_xp -Version 1.1.2
         - nuget install SQLitePCLRaw.provider.e_sqlite3.net45 -Version 1.1.2
         - nuget install Microsoft.Net.Compilers -Version 1.3.2
-        - nuget get-package
 before_script:
         - ls -al
         - mkdir packages && mv SQLitePCLRaw.lib.e_sqlite3.linux.1.1.2 packages/SQLitePCLRaw.lib.e_sqlite3.linux.1.1.2
@@ -17,5 +16,3 @@ before_script:
         - mv Microsoft.Net.Compilers.1.3.2 packages/Microsoft.Net.Compilers.1.3.2   
         - echo after replace
         - ls -al
-
-
